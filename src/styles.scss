@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+.m-t-32{
+  margin-top: 46px;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+  -webkit-box-shadow: 0 0 0  transparent inset !important;
+}
+.no-pd{
+  padding: 0!important;
+}
+.no-mg{
+  margin: 0!important;
+}
