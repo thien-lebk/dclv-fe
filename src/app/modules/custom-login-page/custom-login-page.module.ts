@@ -6,10 +6,11 @@ import {
 } from '@ngneat/transloco';
 import {RouterModule} from '@angular/router';
 import {CustomLoginPageRoutes} from './custom-login-page.routing';
+import { GetUserComponent } from './get-user/get-user.component';
 
 
 @NgModule({
-  declarations: [CustomLoginPageComponent],
+  declarations: [CustomLoginPageComponent, GetUserComponent],
   imports: [
     CommonModule,
     TranslocoModule,

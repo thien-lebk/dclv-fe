@@ -1,0 +1,35 @@
+<div class="container no-pd no-mg">
+  <div class="wrap-content">
+    <div class="logo m-t-32">
+      <img src="../../../assets/images/login/image.png" alt="">
+    </div>
+    <div class="title m-t-32">
+      <span>Enter your title</span>
+    </div>
+    <div class="login-form m-t-32">
+      <form [formGroup]="profileForm">
+        <div class="username">
+          <div class="title-usn" style="opacity: 0">Username</div>
+          <div class="title-usn">Email</div>
+          <input type="email" class="input-usn"  formControlName="email">
+        </div>
+        <div class="password">
+          <div class="title-pass" style="opacity: 0;">Password</div>
+          <div class="title-pass">Password</div>
+          <input type="password" class="input-pass" formControlName="password">
+        </div>
+      </form>
+      <div class="footer m-t-32">
+        <div class="sigup-text">
+          <span >Sign up</span>
+        </div>
+        <div class="forgot-text">
+          <span>Forgot Password</span>
+        </div>
+      </div>
+      <div class="button-submit m-t-32" (click)="onSubmit()">
+        Submit
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import {CustomLoginPageComponent} from './custom-login-page.component';
+import {GetUserComponent} from './get-user/get-user.component';
 
 
 export const CustomLoginPageRoutes: Routes = [
@@ -14,6 +15,10 @@ export const CustomLoginPageRoutes: Routes = [
       {
         path: 'page',
         component: CustomLoginPageComponent,
+      },
+      {
+        path: 'user',
+        component: GetUserComponent,
       },
     ]
   }

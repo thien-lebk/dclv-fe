@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg ">
+  <a class="navbar-brand" href="#">CEAU</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <img src="../../../assets/images/header/search.png" alt="">
+    </form>
+  </div>
+  <div class="user-info">
+    <div class="noti">
+      <img src="../../../assets/images/header/bell.png" alt="">
+    </div>
+    <div class="avatar" (click)="isOpenUserPopup = !isOpenUserPopup">
+      <img src="../../../assets/images/header/ocb.png" alt="">
+      <div class="user-action" [ngClass]="{'openPopUp':isOpenUserPopup}">
+        <p (click)="logout()">Logout</p>
+      </div>
+    </div>
+  </div>
+</nav>

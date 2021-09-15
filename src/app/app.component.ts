@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, Inject} from '@angular/core';
+import {DOCUMENT} from '@angular/common';
+import {AuthUserService} from './services/authUser.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'dclv-fe';
+  isActive = false;
+  constructor(public auth: AuthUserService,
+              @Inject(DOCUMENT) public document: Document,
+  ) {
+    this.isActive = auth.isAuthenticated();
+  }
 }
