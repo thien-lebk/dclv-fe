@@ -6,6 +6,7 @@ import {UserApplicationLogComponent} from './user-application-log/user-applicati
 import {UserApplicationServiceComponent} from './user-application-service/user-application-service.component';
 import {RouterModule} from '@angular/router';
 import {userApplicationRoutes} from './user-application.routing';
+import {ClipboardModule} from '@angular/cdk/clipboard';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import {userApplicationRoutes} from './user-application.routing';
     UserApplicationServiceComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(userApplicationRoutes)
+    RouterModule.forChild(userApplicationRoutes),
+    ClipboardModule,
   ]
 })
 export class UserApplicationModule {

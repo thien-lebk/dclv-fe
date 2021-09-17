@@ -2,7 +2,7 @@
   <div class="container">
     <div class="header">
       <div class="create-app">
-        <span>Create new app</span>
+        <a [routerLink]="['user-application', 'create']"><span>Create new app</span></a>
       </div>
     </div>
     <div class="list-app">
@@ -16,7 +16,8 @@
         </div>
         <div class="client-id">
           <span>Client ID: Qa93sezCtVPI9fvi4HBE91jyOoHabdZz</span>
-          <img src="../../../../assets/images/user-app/Copy.png" alt="">
+
+        <button [cdkCopyToClipboard]="'abcd'"><img   src="../../../../assets/images/user-app/Copy.png" alt=""></button>
         </div>
         <div class="action-op border-10">...
         </div>

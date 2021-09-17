@@ -17,8 +17,16 @@ input:-webkit-autofill:active  {
 .border-10{
   border-radius: 10px !important;
 }
-
-
+.m-t-12{
+  margin-top: 12px !important;
+}
+.m-b-12{
+  margin-bottom: 12px !important;
+}
+.m-t-b-12{
+  margin-top: 12px !important;
+  margin-bottom: 12px !important;
+}
 //Font
 //Rationale-Regular
 @font-face {
