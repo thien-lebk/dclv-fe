@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { LeftNavComponent } from './left-nav/left-nav.component';
+import {FormsModule} from '@angular/forms';
 
 
 
@@ -12,7 +13,8 @@ import { LeftNavComponent } from './left-nav/left-nav.component';
     LeftNavComponent
   ],
     imports: [
-        CommonModule
+        CommonModule,
+        FormsModule
     ]
 })
 export class CoreModule { }

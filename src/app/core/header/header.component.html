@@ -4,45 +4,43 @@
     <div class="wrap-cont">
       <div class="wrap-name">
         <div class="client-name">
-          <span>Client name</span>
+          <span>{{currItem.name}}</span>
         </div>
         <div class="mode">
-          <span>Develop</span>
+          <span>{{currItem.mode}}</span>
         </div>
       </div>
       <div class="dropdown-icon">
         <img src="../../../assets/images/header/dropdown-icon.svg" alt="">
       </div>
-      <div class="dropdown-menu border-10" style="    display: block;
-    top: 45px;">
+      <div class="dropdown-menu border-10">
         <div class="wrap-list border-10">
           <div class="search">
-            <input type="text" placeholder="Search...">
+            <input type="text" placeholder="Search..." (input)="changeSeachForm($event)">
           </div>
           <div class="list-item">
-            <div class="item">
-              <span class="c-name">Client name</span>
+            <div class="item" *ngFor="let item of listItem" (click)="changeItem(item.name,item.schema_name)">
+              <span class="c-name">{{item.name}}</span>
 <!--              <span class="domain">Domain</span>-->
-              <span class="develop">Develop</span>
-            </div>
-            <div class="item">
-              <span class="c-name">Client name</span>
-<!--              <span class="domain">Domain</span>-->
-              <span class="develop">Develop</span>
+              <span class="develop">{{item.schema_name}}</span>
             </div>
 
           </div>
+        </div>
+        <div class="setting">
+          <span>Setting</span>
         </div>
       </div>
     </div>
 
   </div>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <img src="../../../assets/images/header/search.png" alt="">
-    </form>
-  </div>
+<!--  <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+<!--    <form class="form-inline my-2 my-lg-0">-->
+<!--      <input class="form-control mr-sm-2" type="search"-->
+<!--             placeholder="Search" aria-label="Search">-->
+<!--      <img src="../../../assets/images/header/search.png" alt="">-->
+<!--    </form>-->
+<!--  </div>-->
   <div class="user-info">
     <div class="noti">
       <img src="../../../assets/images/header/bell.png" alt="">

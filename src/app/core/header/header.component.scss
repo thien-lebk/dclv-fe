@@ -1,7 +1,7 @@
 .navbar {
   padding: 10px 20px;
   background-color: #E9CACA;
-
+  justify-content: space-between;
   .wrap-left {
     display: grid;
     grid-template-columns: 70px 1fr;
@@ -14,7 +14,11 @@
       border-right: 2px solid white;
       margin-right: 5px;
     }
-
+    .wrap-cont:hover{
+      .dropdown-menu{
+        display: block;
+      }
+    }
     .wrap-cont {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -36,6 +40,7 @@
         margin-left: 5px;
       }
       .dropdown-menu{
+        top: 40px;
         padding: 10px 7px;
         .wrap-list{
           padding: 5px;
@@ -66,6 +71,7 @@
             height: auto;
             overflow-x: hidden;
             .item{
+              cursor: pointer;
               font-size: 14px;
               background-color: #FFEDED;
               padding: 5px;
@@ -85,6 +91,13 @@
               }
             }
           }
+        }
+        .setting{
+          text-align: center;
+          border: 1px solid pink;
+          border-radius: 10px;
+          margin-top: 5px;
+          cursor: pointer;
         }
       }
     }
