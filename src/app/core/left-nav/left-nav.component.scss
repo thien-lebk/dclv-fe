@@ -2,10 +2,22 @@
   min-height: calc(100vh - 60px);
   background-color: #EE4B4B;
   padding-top: 16px;
+  a{
+    text-decoration: none;
+    color: white;
+  }
   p{
     background-color: #ded2d229;
-    padding: 20px 30px;
+    padding: 20px 10px;
     width: 200px;
+    display: flex;
   }
 }
-
+.activelink{
+  p{
+    background: #C13536;
+    .mat-icon{
+      color: #ce2caa;
+    }
+  }
+}

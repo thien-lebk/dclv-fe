@@ -5,6 +5,10 @@
       .create-app{
         display: flex;
         justify-content: flex-end;
+        a{
+          color: white;
+          text-decoration: none;
+        }
         span{
           background-color: #872CCE;
           padding: 3px 25px;
@@ -35,11 +39,17 @@
           width: 200px;
           display: grid;
           justify-content: start;
+          font-size: 14px;
+          text-align: start;
         .app-name{
           font-weight: bold;
         }
+          .type{
+            font-size: 12px;
+          }
         }
         .client-id{
+          font-size: 14px;
           display: block;
           margin-right: 50px;
           span{

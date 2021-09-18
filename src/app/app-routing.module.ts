@@ -10,7 +10,7 @@ const routes: Routes = [];
 export const AppRoutes: Routes = [
   {
     path: '',
-    component: UserApplicationListComponent,
+    loadChildren: () => import('./modules/main-page/main-page.module').then(m => m.MainPageModule),
     canActivate: [AuthGuardService],
   },
 
