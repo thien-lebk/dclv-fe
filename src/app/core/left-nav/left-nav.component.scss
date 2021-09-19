@@ -1,6 +1,6 @@
 .wrap-content{
   min-height: calc(100vh - 60px);
-  background-color: #EE4B4B;
+  background-color: #6F71E5;
   padding-top: 16px;
   a{
     text-decoration: none;
@@ -15,9 +15,9 @@
 }
 .activelink{
   p{
-    background: #C13536;
+    background: #6F71E5;
     .mat-icon{
-      color: #ce2caa;
+      color: white;
     }
   }
 }

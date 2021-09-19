@@ -7,17 +7,21 @@ import {UserApplicationServiceComponent} from './user-application-service/user-a
 import {RouterModule} from '@angular/router';
 import {userApplicationRoutes} from './user-application.routing';
 import {ClipboardModule} from '@angular/cdk/clipboard';
+import { UserApplicationDetailComponent } from './user-application-detail/user-application-detail.component';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
   declarations: [UserApplicationListComponent,
     UserApplicationCreateComponent,
     UserApplicationLogComponent,
-    UserApplicationServiceComponent],
+    UserApplicationServiceComponent,
+    UserApplicationDetailComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(userApplicationRoutes),
     ClipboardModule,
+    MatIconModule,
   ]
 })
 export class UserApplicationModule {

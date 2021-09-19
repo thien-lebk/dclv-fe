@@ -1,6 +1,6 @@
 .navbar {
   padding: 10px 20px;
-  background-color: #E9CACA;
+  background-color: #151A93;
   justify-content: space-between;
   .wrap-left {
     display: grid;
@@ -9,7 +9,7 @@
     .navbar-brand {
       margin-right: 0;
       font-family: Rationale;
-      color: black;
+      color: white;
       text-decoration: none;
       border-right: 2px solid white;
       margin-right: 5px;
@@ -25,6 +25,7 @@
       position: relative;
       .wrap-name {
         .client-name {
+          color:white;
           font-size: 14px;
         }
 
@@ -40,11 +41,12 @@
         margin-left: 5px;
       }
       .dropdown-menu{
+        width: 194px;
         top: 40px;
         padding: 10px 7px;
         .wrap-list{
           padding: 5px;
-          border: 1px dotted #C11B1B;
+          border: 1px dotted #6F71E5;
           .search{
             input{
               font-size: 14px;
@@ -54,16 +56,16 @@
               border-radius: 10px;
             }
             ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-              color: #CD9A9A;
+              color: #151A93;
               opacity: 1; /* Firefox */
             }
 
             :-ms-input-placeholder { /* Internet Explorer 10-11 */
-              color: #CD9A9A;
+              color: #151A93;
             }
 
             ::-ms-input-placeholder { /* Microsoft Edge */
-              color: #CD9A9A;
+              color: #151A93;
             }
           }
           .list-item{
@@ -73,7 +75,7 @@
             .item{
               cursor: pointer;
               font-size: 14px;
-              background-color: #FFEDED;
+              background-color: #F0EEFF;
               padding: 5px;
               border-radius: 10px;
               margin: 5px 0px;
@@ -94,7 +96,7 @@
         }
         .setting{
           text-align: center;
-          border: 1px solid pink;
+          border: 1px solid #F0EEFF;
           border-radius: 10px;
           margin-top: 5px;
           cursor: pointer;
@@ -103,9 +105,7 @@
     }
     .wrap-cont:hover{
       .dropdown-icon{
-        img{
           transform: scale(1.2);
-        }
       }
       .dropdown-menu{
         display: block;

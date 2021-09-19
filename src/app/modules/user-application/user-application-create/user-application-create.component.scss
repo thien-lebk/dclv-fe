@@ -1,5 +1,5 @@
 .wrap-content {
-  background: #FFECEF;
+  background: #F0EEFF;
   padding: 24px;
   margin: 12px;
   .top-content {
@@ -17,16 +17,16 @@
       display: grid;
       grid-column-gap: 10px;
       grid-template-columns: 1fr 1fr 1fr 1fr;
-
+      color: black;
       .item {
+        cursor: pointer;
         width: 200px;
         height: 250px;
         text-align: center;
         justify-content: center;
         align-items: center;
-        background-color: #AC5555;
-        color: white;
-
+        //background-color: #white;
+        border:solid 1px #151A93;
         img {
 
         }
@@ -57,13 +57,13 @@
     }
     .back {
       background: white;
-      border: 1px solid purple;
-      color: purple;
+      border: 1px solid #151A93;
+      color: #151A93;
     }
 
     .next {
       margin-left: 12px;
-      background: purple;
+      background: #151A93;
       border: 1px solid white;
       color: white;
     }
