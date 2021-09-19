@@ -9,43 +9,22 @@ import {UserLoginDto} from '../dto/auth/UserLoginDto';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthUserService {
+export class ClientService {
 
   constructor(
     private http: HttpClient,
     public jwtHelper: JwtHelperService
   ) { }
-  create(data: UserCreateDto): Observable<any> {
-    data.is_active = true;
-    const url = `${MainSource.route}/users/`;
-    const body = JSON.stringify(data);
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        // Authorization: 'my-auth-token'
-      })
-    };
-    return this.http.post<any>(url, body, httpOptions);
-  }
-  login(data: UserLoginDto): Observable<any> {
-    const url = `${MainSource.route}/users/token/`;
-    const body = JSON.stringify(data);
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        // Authorization: 'my-auth-token'
-      })
-    };
-    return this.http.post<any>(url, body, httpOptions);
-  }
-  public isAuthenticated(): boolean {
+  getClientList(): Observable<any> {
     const token = localStorage.getItem('access');
-    if (!token) { return  false; }
-    // Check whether the token is expired and return
-    // true or false
-    // console.log(token);
-    // console.log(this.jwtHelper.getTokenExpirationDate(token));
-    // console.log(this.jwtHelper.decodeToken(token));
-    return !this.jwtHelper.isTokenExpired(token);
+    const url = `${MainSource.route}/client/`;
+    // const body = JSON.stringify(data);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: token
+      })
+    };
+    return this.http.get<any>(url, httpOptions);
   }
 }

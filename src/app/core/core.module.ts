@@ -4,6 +4,7 @@ import {HeaderComponent} from './header/header.component';
 import {LeftNavComponent} from './left-nav/left-nav.component';
 import {MatIconModule} from '@angular/material/icon';
 import {RouterModule} from '@angular/router';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import {RouterModule} from '@angular/router';
     CommonModule,
     MatIconModule,
     RouterModule,
+    FormsModule
   ]
 })
 export class CoreModule {
