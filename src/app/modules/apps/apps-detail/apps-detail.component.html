@@ -1,0 +1,509 @@
+<header class="page header text-contrast bg-dark">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h1 class="bold display-md-4 text-contrast mb-4">Default App</h1>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="section bg-light edge top-left ">
+  <div class="container bring-to-front border border-10 ">
+    <div class="save-change">
+      <button class="btn-primary border-10 save-change ">Save change</button>
+    </div>
+    <div class="row align-items-start gap-y pt-4 mt-4 pb-4 border-bottom">
+      <div class="col-md-6 col-lg-5 text-center text-md-left">
+        <h2 class="text-dark light">Basic information</h2>
+      </div>
+
+      <div class="col-md-6 col-lg-6">
+        <form
+          action=";"
+          class="cozy"
+          novalidate="novalidate"
+          style="text-align: start"
+        >
+          <div class="form-group">
+            <label class="form-label mb-0 text-black bold"
+              >Name<span class="text-danger">*</span></label
+            >
+            <div
+              class="form-text text-secondary text-ceau-secondary mt-0 mb-2"
+            ></div>
+            <div class="position-relative">
+              <input
+                type="text"
+                class="form-control mb-2 mt-2 pr-4"
+                aria-describedby="emailHelp"
+                placeholder="Enter Name"
+              />
+              <dc-copy
+                class="position-absolute"
+                style="top: 8px; right: 6px"
+                [content]="'and'"
+              ></dc-copy>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label mb-0 text-black bold"
+              >Domain<span class="text-danger">*</span></label
+            >
+            <div
+              class="form-text text-secondary text-ceau-secondary mt-0 mb-2"
+            ></div>
+            <div class="position-relative">
+              <input
+                type="text"
+                class="form-control mb-2 mt-2 pr-4"
+                aria-describedby="emailHelp"
+                placeholder="Enter Domain"
+              />
+              <dc-copy
+                class="position-absolute"
+                style="top: 8px; right: 6px"
+                [content]="'and'"
+              ></dc-copy>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label mb-0 text-black bold"
+              >Client ID<span class="text-danger">*</span></label
+            >
+            <div
+              class="form-text text-secondary text-ceau-secondary mt-0 mb-2"
+            ></div>
+            <div class="position-relative">
+              <input
+                type="text"
+                class="form-control mb-2 mt-2 pr-4"
+                aria-describedby="emailHelp"
+                placeholder="Enter Domain"
+              />
+              <dc-copy
+                class="position-absolute"
+                style="top: 8px; right: 6px"
+                [content]="'and'"
+              ></dc-copy>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label mb-0 text-black bold"
+              >Client Secret<span class="text-danger">*</span></label
+            >
+            <div class="position-relative">
+              <input
+                type="text"
+                class="form-control mb-2 mt-2 pr-4"
+                aria-describedby="emailHelp"
+                placeholder="Enter Domain"
+              />
+              <dc-copy
+                class="position-absolute"
+                style="top: 8px; right: 6px"
+                [content]="'and'"
+              ></dc-copy>
+            </div>
+            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
+              The Client Secret is not base64 encoded.
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row align-items-start gap-y pt-4 mt-4 pb-4 border-bottom">
+      <div class="col-md-6 col-lg-5 text-center text-md-left">
+        <h2 class="text-dark light">Application Properties</h2>
+      </div>
+
+      <div class="col-md-6 col-lg-6">
+        <form
+          action=";"
+          class="cozy"
+          novalidate="novalidate"
+          style="text-align: start"
+        >
+          <div class="form-group">
+            <label class="form-label mb-0 text-black bold"
+              >Application Logo<span class="text-danger">*</span></label
+            >
+            <div class="center-flex border-1px-grey p-3 mt-2 border-10">
+              <img [src]="logoSrc" style="height: 60px; width: 60px" alt="" />
+            </div>
+            <div class="center-flex">
+              <input
+                type="text"
+                class="form-control mb-2 mt-2"
+                aria-describedby="emailHelp"
+                placeholder="Enter Url Image"
+                [(ngModel)]="logoSrc"
+                [ngModelOptions]="{ standalone: true }"
+              />
+            </div>
+
+            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
+              The URL of the logo to display for the application, if none is set
+              the default badge for this type of application will be shown.
+              Recommended size is 150x150 pixels.
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label mb-0 text-black bold"
+              >Application Type<span class="text-danger">*</span></label
+            >
+            <select
+              class="form-select form-control-rounded valid"
+              aria-invalid="false"
+            >
+              <option *ngFor="let app of listAppType">{{ app }}</option>
+            </select>
+            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
+              The type of application will determine which settings you can
+              configure from the dashboard.
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label mb-2 text-black bold"
+              >Token Endpoint Authentication Method<span class="text-danger"
+                >*</span
+              ></label
+            >
+            <select
+              class="form-check form-select form-control-rounded valid"
+              aria-invalid="false"
+            >
+              <option *ngFor="let item of tokenEnPoint">{{ item }}</option>
+            </select>
+            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
+              Defines the requested authentication method for the token
+              endpoint. Possible values are 'None' (public application without a
+              client secret), 'Post' (application uses HTTP POST parameters) or
+              'Basic' (application uses HTTP Basic).
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row align-items-start gap-y pt-4 mt-4 pb-4 border-bottom">
+      <div class="col-md-6 col-lg-5 text-center text-md-left">
+        <h2 class="text-dark light">Application URIs</h2>
+      </div>
+
+      <div class="col-md-6 col-lg-6">
+        <form
+          action=";"
+          class="cozy"
+          novalidate="novalidate"
+          style="text-align: start"
+        >
+          <div class="form-group">
+            <label class="form-label mb-0 text-black bold">
+              Application Login URI</label
+            >
+            <div
+              class="form-text text-secondary text-ceau-secondary mt-0 mb-2"
+            ></div>
+            <div class="position-relative">
+              <input
+                type="text"
+                class="form-control mb-2 mt-2 pr-4"
+                placeholder="https://myapp.com.login"
+              />
+            </div>
+            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
+              In some scenarios, Auth0 will need to redirect to your
+              application’s login page. This URI needs to point to a route in
+              your application that should redirect to your tenant’s /authorize
+              endpoint.
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label mb-0 text-black bold">
+              Allowed Callback URLs</label
+            >
+            <div
+              class="form-text text-secondary text-ceau-secondary mt-0 mb-2"
+            ></div>
+            <div class="position-relative">
+              <textarea class="form-control mb-2 mt-2 pr-4"> </textarea>
+            </div>
+            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
+              After the user authenticates we will only call back to any of
+              these URLs. You can specify multiple valid URLs by
+              comma-separating them (typically to handle different environments
+              like QA or testing). Make sure to specify the protocol (https://)
+              otherwise the callback may fail in some cases. With the exception
+              of custom URI schemes for native clients, all callbacks should use
+              protocol https://. You can use Organization URL parameters in
+              these URLs.
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label mb-0 text-black bold">
+              Allowed Logout URLs</label
+            >
+            <div
+              class="form-text text-secondary text-ceau-secondary mt-0 mb-2"
+            ></div>
+            <div class="position-relative">
+              <textarea class="form-control mb-2 mt-2 pr-4"> </textarea>
+            </div>
+            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
+              A set of URLs that are valid to redirect to after logout from
+              Auth0. After a user logs out from Auth0 you can redirect them with
+              the returnTo query parameter. The URL that you use in returnTo
+              must be listed here. You can specify multiple valid URLs by
+              comma-separating them. You can use the star symbol as a wildcard
+              for subdomains (*.google.com). Query strings and hash information
+              are not taken into account when validating these URLs.
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label mb-0 text-black bold">
+              Allowed Web Origins
+            </label>
+            <div
+              class="form-text text-secondary text-ceau-secondary mt-0 mb-2"
+            ></div>
+            <div class="position-relative">
+              <textarea class="form-control mb-2 mt-2 pr-4"> </textarea>
+            </div>
+            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
+              Comma-separated list of allowed origins for use with Cross-Origin
+              Authentication, Device Flow, and web message response mode.
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label mb-0 text-black bold">
+              Allowed Origins (CORS)
+            </label>
+            <div
+              class="form-text text-secondary text-ceau-secondary mt-0 mb-2"
+            ></div>
+            <div class="position-relative">
+              <textarea class="form-control mb-2 mt-2 pr-4"> </textarea>
+            </div>
+            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
+              Allowed Origins are URLs that will be allowed to make requests
+              from JavaScript to Auth0 API (typically used with CORS). By
+              default, all your callback URLs will be allowed. This field allows
+              you to enter other origins if you need to. You can specify
+              multiple valid URLs by comma-separating them or one by line, and
+              also use wildcards at the subdomain level (e.g.:
+              https://*.contoso.com). Query strings and hash information are not
+              taken into account when validating these URLs.. You can use
+              Organization URL placeholders in these URLs.
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row align-items-start gap-y pt-4 mt-4 pb-4 border-bottom">
+      <div class="col-md-6 col-lg-5 text-center text-md-left">
+        <h2 class="text-dark light">ID Token</h2>
+      </div>
+
+      <div class="col-md-6 col-lg-6">
+        <form
+          action=";"
+          class="cozy"
+          novalidate="novalidate"
+          style="text-align: start"
+        >
+          <div class="form-group">
+            <label class="form-label mb-0 text-black bold">
+              ID Token Expiration</label
+            >
+            <div
+              class="form-text text-secondary text-ceau-secondary mt-0 mb-2"
+            ></div>
+            <div class="position-relative">
+              <input
+                type="text"
+                class="form-control mb-2 mt-2 pr-6"
+                placeholder=""
+              />
+              <span
+                class="text-secondary text-ceau-secondary position-absolute seconds"
+                >seconds</span
+              >
+            </div>
+            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
+              This setting allows you to set the lifetime of the
+              <code class="text-dark" data-cosmos-key="code">id_token</code> (in
+              seconds).
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row align-items-start gap-y pt-4 mt-4 pb-4 border-bottom">
+      <div class="col-md-6 col-lg-5 text-center text-md-left">
+        <h2 class="text-dark light">Refresh Token Rotation</h2>
+      </div>
+
+      <div class="col-md-6 col-lg-6">
+        <form
+          action=";"
+          class="cozy"
+          novalidate="novalidate"
+          style="text-align: start"
+        >
+          <div class="form-group">
+            <label class="form-label mb-0 text-black bold"> Rotation</label>
+            <div
+              class="form-text text-secondary text-ceau-secondary mt-0 mb-2"
+            ></div>
+            <mat-slide-toggle> </mat-slide-toggle>
+            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
+              When enabled, as a result of exchanging a refresh token, a new
+              refresh token will be issued and the existing token will be
+              invalidated. This allows for automatic detection of token reuse if
+              the token is leaked. In addition, an absolute expiration lifetime
+              must be set.
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label mb-0 text-black bold">
+              Reuse Interval
+            </label>
+            <div
+              class="form-text text-secondary text-ceau-secondary mt-0 mb-2"
+            ></div>
+            <div class="position-relative">
+              <input
+                type="text"
+                class="form-control mb-2 mt-2 pr-6"
+                placeholder=""
+              />
+              <span
+                class="text-secondary text-ceau-secondary position-absolute seconds"
+                >seconds</span
+              >
+            </div>
+            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
+              The allowable leeway time that the same
+              <code class="text-dark">refresh_token</code> can be used to
+              request an <code class="text-dark">access_token</code> without
+              triggering automatic reuse detection.
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row align-items-start gap-y pt-4 mt-4 pb-4 border-bottom">
+      <div class="col-md-6 col-lg-5 text-center text-md-left">
+        <h2 class="text-dark light">Refresh Token Expiration</h2>
+      </div>
+
+      <div class="col-md-6 col-lg-6">
+        <form
+          action=";"
+          class="cozy"
+          novalidate="novalidate"
+          style="text-align: start"
+        >
+          <div class="form-group">
+            <label class="form-label mb-0 text-black bold">
+              Absolute Expiration
+            </label>
+            <div
+              class="form-text text-secondary text-ceau-secondary mt-0 mb-2"
+            ></div>
+            <mat-slide-toggle> </mat-slide-toggle>
+            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
+              When enabled, a <code class="text-dark">refresh_token</code> will
+              expire based on an absolute lifetime, after which the token can no
+              longer be used. If rotation is enabled, an expiration lifetime
+              must be set.
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label mb-0 text-black bold">
+              Absolute Lifetime
+            </label>
+            <div
+              class="form-text text-secondary text-ceau-secondary mt-0 mb-2"
+            ></div>
+            <div class="position-relative">
+              <input
+                type="text"
+                class="form-control mb-2 mt-2 pr-6"
+                placeholder=""
+              />
+              <span
+                class="text-secondary text-ceau-secondary position-absolute seconds"
+                >seconds</span
+              >
+            </div>
+            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
+              Sets the absolute lifetime of a
+              <code class="text-dark">refresh_token</code> (in seconds).
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label mb-0 text-black bold">
+              Inactivity Expiration
+            </label>
+            <div
+              class="form-text text-secondary text-ceau-secondary mt-0 mb-2"
+            ></div>
+            <mat-slide-toggle> </mat-slide-toggle>
+            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
+              When enabled, a <code class="text-dark">refresh_token</code> will
+              expire based on a specified inactivity lifetime, after which the
+              token can no longer be used.
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label mb-0 text-black bold">
+              Inactivity Lifetime
+            </label>
+            <div
+              class="form-text text-secondary text-ceau-secondary mt-0 mb-2"
+            ></div>
+            <div class="position-relative">
+              <input
+                type="text"
+                class="form-control mb-2 mt-2 pr-6"
+                placeholder=""
+              />
+              <span
+                class="text-secondary text-ceau-secondary position-absolute seconds"
+                >seconds</span
+              >
+            </div>
+            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
+              Sets the inactivity lifetime of a
+              <code class="text-dark">refresh_token</code> (in seconds).
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="save-change center-flex">
+      <button class="btn-primary border-10 save-change ">Save change</button>
+    </div>
+    <div class="row align-items-start gap-y pt-4 mt-4 pb-4 mb-4 border-bottom">
+      <div class="col-12 bold text-black">Danger Zone</div>
+      <div class="col-8 col-md-10 text-danger">
+        <p>Delete this application</p>
+        <p>All your apps using this client will stop working.</p>
+      </div>
+      <div class="col-4 col-md-2 margin-auto">
+        <button class="btn-danger border-10">Delete</button>
+      </div>
+      <div class="col-8 col-md-10 text-danger">
+        <p>Rotate secret</p>
+        <p>
+          All authorized apps will need to be updated with the new client
+          secret.
+        </p>
+      </div>
+      <div class="col-4 col-md-2 margin-auto">
+        <button class="btn-danger border-10">Rotate</button>
+      </div>
+    </div>
+  </div>
+</section>

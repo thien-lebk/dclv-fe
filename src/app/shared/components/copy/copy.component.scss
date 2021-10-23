@@ -1,0 +1,23 @@
+span {
+  margin-right: 10px;
+}
+img {
+  width: 21px;
+  margin-bottom: 6px;
+}
+.copy-icon {
+  .copy-text {
+    right: -21px;
+    top: -36px;
+    padding: 5px 5px;
+    margin-right: 0;
+  }
+  span {
+    display: none;
+  }
+}
+.copy-icon:hover {
+  span {
+    display: block;
+  }
+}

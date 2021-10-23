@@ -1,0 +1,14 @@
+<div class="position-relative copy-icon center-flex">
+  <img
+    (mouseleave)="hoverCopyContent = 'Copy'"
+    (mouseenter)="hoverCopyContent = 'Copy'"
+    (click)="hoverCopyContent = 'Copied'"
+    class="cursor-pointer"
+    [cdkCopyToClipboard]="content"
+    src="../../../../assets/images/user-app/Copy.png"
+    alt=""
+  />
+  <span class="bg-dark text-light copy-text position-absolute border-10">{{
+    hoverCopyContent
+  }}</span>
+</div>

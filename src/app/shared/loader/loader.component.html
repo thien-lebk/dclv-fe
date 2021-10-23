@@ -1,0 +1,10 @@
+<div [hidden]="!isLoadingProgress" class="text-xs-center">
+  <mat-progress-bar
+    *ngIf="isLoadingProgress"
+    mode="indeterminate"
+  ></mat-progress-bar>
+  <!--  <i class="fas fa-cog fa-spin fa-3x"></i> <span>{{ message }}</span>-->
+</div>
+<div *ngIf="loadingForm" class="text-xs-center">
+  <mat-spinner class="form-spinner"></mat-spinner>
+</div>

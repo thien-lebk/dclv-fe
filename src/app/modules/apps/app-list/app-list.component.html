@@ -1,0 +1,128 @@
+<div class="wrap-content">
+  <div class="container">
+    <div class="header d-flex justify-content-between">
+      <button
+        type="button"
+        [routerLink]="['../', 'create']"
+        class="btn btn-primary"
+      >
+        Create new app
+      </button>
+      <div class="wrap-cont ">
+        <div class="wrap-name d-flex">
+          <div class="border border-10 px-1 ">
+            <div class="client-name">
+              <span class="bold text-dark">{{ currItem.name }}</span>
+            </div>
+            <div class="mode" *ngIf="currItem.domains">
+              <span class="">{{ currItem.domains[0].domain }}</span>
+            </div>
+          </div>
+          <div class="dropdown-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        </div>
+
+        <div class="dropdown-menu border-10">
+          <div
+            *ngIf="isLoadingClient"
+            style="z-index: 999;width: 100%; height: 100%"
+          >
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+          </div>
+          <div class="wrap-list border-10" *ngIf="!isLoadingClient">
+            <div class="search">
+              <input
+                type="text"
+                placeholder="Search..."
+                (input)="changeSeachForm($event)"
+                style="width: 100%"
+              />
+            </div>
+            <div class="list-item">
+              <div
+                class="item"
+                *ngFor="let item of listClientItem"
+                (click)="changeItem(item.name)"
+              >
+                <span class="c-name">{{ item.name }}</span>
+                <!--              <span class="domain">Domain</span>-->
+                <span class="develop">{{ item.domains[0].domain }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="setting border-primary">
+            <a class="text-primary" [routerLink]="['../../', 'client', 'list']"
+              >Setting</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="list-app">
+      <div
+        *ngFor="let item of listItem"
+        class="app border-10 border color-primary my-4"
+      >
+        <div
+          class="wrap-img cursor-pointer"
+          [routerLink]="['../', 'detail', item.id]"
+        >
+          <img
+            class="border-10"
+            [src]="
+              'https://genk.mediacdn.vn/thumb_w/660/139269124445442048/2021/9/13/photo-1-1631488187952925878697.jpg'
+            "
+            alt=""
+          />
+        </div>
+        <div
+          class="name cursor-pointer"
+          [routerLink]="['../', 'detail', item.id]"
+        >
+          <span class="app-name text-dark">{{ item.name }}</span>
+          <span class="type text-dark">{{ item.type }}</span>
+        </div>
+
+        <div class="client-id d-flex">
+          <span>Client ID: {{ item.client_id }}</span>
+          <dc-copy [content]="item.client_id"></dc-copy>
+        </div>
+        <div ngbDropdown class="d-inline-block action-op">
+          <div
+            style="height: 30px"
+            class="cursor-pointer bg-secondary border-10"
+            ngbDropdownToggle
+          >
+            ...
+          </div>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem>Quick start</button>
+            <a
+              ngbDropdownItem
+              [routerLink]="['../', 'detail', item.id]"
+              [state]="item"
+            >
+              Settings
+            </a>
+            <button ngbDropdownItem>Addons</button>
+            <button ngbDropdownItem>Connections</button>
+            <button ngbDropdownItem>Organizations</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

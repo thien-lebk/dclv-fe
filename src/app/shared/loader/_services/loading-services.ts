@@ -1,0 +1,37 @@
+import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+import { Loading } from '../_modal/loading';
+
+@Injectable({ providedIn: 'root' })
+export class LoadingService {
+  loadingObject: Subject<any> = new Subject();
+  loadingObservable = this.loadingObject.asObservable();
+  data: Loading = new Loading();
+  loading(data: Loading): void {
+    return this.loadingObject.next(data);
+  }
+
+  startLoadingForm(): void {
+    this.data.loading = false;
+    this.data.loadingForm = true;
+    return this.loadingObject.next(this.data);
+  }
+
+  stopLoadingForm(): void {
+    this.data.loading = false;
+    this.data.loadingForm = false;
+    return this.loadingObject.next(this.data);
+  }
+
+  startLoading(): void {
+    this.data.loading = true;
+    this.data.loadingForm = false;
+    return this.loadingObject.next(this.data);
+  }
+
+  stopLoading(): void {
+    this.data.loading = false;
+    this.data.loadingForm = false;
+    return this.loadingObject.next(this.data);
+  }
+}

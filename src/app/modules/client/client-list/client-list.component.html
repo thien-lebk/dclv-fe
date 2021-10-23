@@ -1,0 +1,87 @@
+<div class="wrap-content">
+  <div class="container">
+    <div class="header">
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="toggleForm = !toggleForm"
+      >
+        Create new client
+      </button>
+      <div *ngIf="toggleForm" class="py-5">
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="exampleInputEmailBase" class="form-label mb-0 bold"
+              >Client name <span class="text-danger">*</span></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputEmailBase"
+              aria-describedby="emailHelp"
+              placeholder="Enter name"
+              formControlName="name"
+            />
+          </div>
+          <button class="btn btn-secondary">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="list-app">
+      <div
+        *ngFor="let item of listItem"
+        class="app border-10 border color-primary my-4"
+      >
+        <div
+          class="wrap-img cursor-pointer"
+          [routerLink]="['../', 'detail', item.id]"
+        >
+          <img
+            class="border-10"
+            [src]="
+              'https://genk.mediacdn.vn/thumb_w/660/139269124445442048/2021/9/13/photo-1-1631488187952925878697.jpg'
+            "
+            alt=""
+          />
+        </div>
+        <div
+          class="name cursor-pointer"
+          [routerLink]="['../', 'detail', item.id]"
+        >
+          <span class="app-name text-dark">{{ item.name }}</span>
+          <!--          <span class='type text-dark'>{{ item.type }}</span>-->
+        </div>
+
+        <div
+          class="client-id d-flex text-primary position-relative"
+          style="width: 70%"
+        >
+          <div>
+            <a (click)="goToUrl(item.domains[0].domain)" class="cursor-pointer"
+              ><span class="text-dark">Domain: </span
+              >{{ item.domains[0].domain }}</a
+            >
+          </div>
+          <div>
+            <span
+              class="position-absolute cursor-pointer"
+              (click)="selectClient(item.name)"
+              style="right: 0"
+              >Select client</span
+            >
+          </div>
+        </div>
+        <div ngbDropdown class="d-inline-block action-op">
+          <div
+            style="height: 30px"
+            class="cursor-pointer bg-secondary border-10"
+            ngbDropdownToggle
+          >
+            ...
+          </div>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

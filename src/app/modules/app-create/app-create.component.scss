@@ -1,0 +1,13 @@
+.wrap-item {
+  @media screen and(min-width:768px ) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+}
+.p-4 {
+  @media screen and(max-width:1023px ) {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
