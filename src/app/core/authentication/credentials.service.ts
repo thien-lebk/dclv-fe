@@ -38,8 +38,7 @@ export class CredentialsService {
    */
   isAuthenticated(): boolean {
     const token = localStorage.getItem('access');
-    console.log(token);
-    if (!token) {
+    if (!token) {      
       return false;
     } else if (this.jwtHelper.isTokenExpired(token)) {
       const tokenR = localStorage.getItem('refresh');

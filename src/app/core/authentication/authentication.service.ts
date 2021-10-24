@@ -11,7 +11,14 @@ export interface LoginContext {
   password: string;
   remember?: boolean;
 }
-
+export interface RegisterDto {
+  email: string;
+  password: string;
+  name: boolean;
+  username: boolean;
+  phone: boolean;
+  is_active?: boolean;
+}
 /**
  * Provides a base for authentication workflow.
  * The login/logout methods should be replaced with proper implementation.
@@ -33,6 +40,17 @@ export class AuthenticationService {
    */
   login(context: LoginContext): Observable<Credentials> {
     const url = `${MainSource.route}/users/token/`;
+    const body = JSON.stringify(context);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+        // Authorization: 'my-auth-token'
+      })
+    };
+    return this.http.post<any>(url, body, httpOptions);
+  }
+  register(context: RegisterDto): Observable<Credentials> {
+    const url = `${MainSource.route}/users/`;
     const body = JSON.stringify(context);
     const httpOptions = {
       headers: new HttpHeaders({

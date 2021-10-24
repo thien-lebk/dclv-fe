@@ -4,6 +4,7 @@ import {
   TokenEnpoint
 } from '@app/modules/apps/_modal/app-list-item-dto';
 import { ActivatedRoute } from '@angular/router';
+import { AppCreateService } from '@app/modules/app-create/_services/app-create-service';
 
 @Component({
   selector: 'dc-apps-detail',
@@ -21,9 +22,17 @@ export class AppsDetailComponent implements OnInit {
   logoSrc =
     'https://cdn.auth0.com/manhattan/versions/1.3420.0/assets/badge.png';
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute,
+    private app$:AppCreateService,
+    ) {}
 
   ngOnInit(): void {
-    this.route.data.subscribe(v => console.log(v));
+    this.route.params.subscribe(params => {
+      console.log(params['id']) //log the value of id
+      this.app$.getDetailApp(params['id']).subscribe(res=>{
+        console.log(res);
+        
+      })
+    });
   }
 }
