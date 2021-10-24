@@ -18,7 +18,7 @@ export class DomainService {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        Authorization: token
+        Authorization: 'Bearer ' + token
       })
     };
     return this.http.post<any>(url, body, httpOptions);

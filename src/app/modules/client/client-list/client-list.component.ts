@@ -35,6 +35,8 @@ export class ClientListComponent implements OnInit {
     this.client$.get().subscribe(data => {
       this.listItem = data.results;
       this.loadingService.stopLoading();
+      console.log(data);
+      
     });
     // this.domain$.get().subscribe(data=>{
     //   console.log(data);

@@ -14,10 +14,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FeatherModule } from 'angular-feather';
 import { AppsDetailComponent } from './apps-detail/apps-detail.component';
 import { ClipboardModule } from '@angular/cdk/clipboard';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [AppListComponent, AppsDetailComponent],
@@ -37,7 +38,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     FormsModule,
     MatSlideToggleModule,
     MatIconModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    ReactiveFormsModule,
+    MatSelectModule,
   ]
 })
 export class AppsModule {}
