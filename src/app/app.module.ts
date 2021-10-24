@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { ShellModule } from './shell/shell.module';
 import { TranslateModule } from '@ngx-translate/core';
-
+import {AlertModule} from '../app/modules/alert/alert.module'
 import { SharedModule } from '@app/shared';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -37,6 +37,7 @@ export function tokenGetter() {
     FaqsModule,
     CtaModule,
     FootersModule,
+    AlertModule,
     // must be imported as the last module as it contains the fallback route
     JwtModule.forRoot({
       config: {

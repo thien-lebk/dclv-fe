@@ -12,6 +12,7 @@ import { MainSource } from '@app/core/authentication/_source';
 import {AppType} from '../_enum/app-type';
 import {ApplicationService} from '../_services/apps-service';
 import { UpdateAppDetailDto } from '../_modal/update-app-detail-dto';
+import { AlertServices } from '@app/modules/alert/_service/alert-services';
 @Component({
   selector: 'dc-apps-detail',
   templateUrl: './apps-detail.component.html',
@@ -65,11 +66,11 @@ export class AppsDetailComponent implements OnInit {
     });
   constructor(private route: ActivatedRoute,
     private app$:ApplicationService,
+    private alert$:AlertServices,
     ) {}
     appDetail:GetAppDetailDto = new GetAppDetailDto();
     
   ngOnInit(): void {
-
     this.route.params.subscribe(params => {
       this.app$.getDetailApp(params['id']).subscribe(res=>{
         this.appDetail = res;
@@ -87,11 +88,14 @@ export class AppsDetailComponent implements OnInit {
     let updateAppDto:UpdateAppDetailDto = this.profileForm.value;
     this.app$.updateDetailApp(this.appDetail.id,updateAppDto).subscribe(res=>{
       console.log(res);
+      this.alert$.success("Update success")
+
     })
   }
   onDelete():void {
     this.app$.deleteDetailApp(this.appDetail.id).subscribe(res=>{
-      console.log(res);
+      this.alert$.success("Delete success")
+
     })
   }
 }
