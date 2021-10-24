@@ -29,9 +29,11 @@ export class NavbarDefaultComponent implements OnInit {
     public cre$: CredentialsService,
     public auth$: AuthenticationService
   ) {}
-
+  client:string;
   ngOnInit() {
     this.isAuthenticated = this.cre$.isAuthenticated();
+    this.client = localStorage.getItem('client');
+
   }
 
   isRightPositioned() {
@@ -40,5 +42,6 @@ export class NavbarDefaultComponent implements OnInit {
 
   signOut() {
     localStorage.clear();
+    window.location.reload();
   }
 }

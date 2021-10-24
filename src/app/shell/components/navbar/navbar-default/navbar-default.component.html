@@ -10,6 +10,7 @@
       class="nav-item dropdown mega"
       ngbDropdown
       placement="bottom left right"
+      *ngIf="isAuthenticated"
     >
       <a class="nav-link dropdown-toggle" ngbDropdownToggle href="javascript:;"
         >Application</a
@@ -24,8 +25,11 @@
             <a class="dropdown-item" [routerLink]="['/app-landing']"
               >Getting Started</a
             >
-            <a class="dropdown-item" [routerLink]="['/applications', 'list']"
+            <a *ngIf="client" class="dropdown-item" [routerLink]="['/applications', 'list']"
               >Application list</a
+            >
+            <a class="dropdown-item" [routerLink]="['/client', 'list']"
+              >Client list</a
             >
             <a class="dropdown-item" [routerLink]="['/automate-social']"
               >Apis</a

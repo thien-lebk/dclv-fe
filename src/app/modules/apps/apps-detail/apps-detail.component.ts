@@ -3,7 +3,7 @@ import {
   AppItemTypeEnum,
   TokenEnpoint
 } from '@app/modules/apps/_modal/app-list-item-dto';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AppCreateService } from '@app/modules/app-create/_services/app-create-service';
 import { AuthorizationGrantType } from '@app/modules/app-create/_modal/app-create-dto';
 import { FormControl, FormGroup } from '@angular/forms';
@@ -67,6 +67,7 @@ export class AppsDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private app$:ApplicationService,
     private alert$:AlertServices,
+    private router: Router,
     ) {}
     appDetail:GetAppDetailDto = new GetAppDetailDto();
     
@@ -93,9 +94,11 @@ export class AppsDetailComponent implements OnInit {
     })
   }
   onDelete():void {
+
+    
     this.app$.deleteDetailApp(this.appDetail.id).subscribe(res=>{
       this.alert$.success("Delete success")
-
+      this.router.navigateByUrl('/applications/list')
     })
   }
 }
