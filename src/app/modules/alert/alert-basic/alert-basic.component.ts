@@ -2,7 +2,7 @@ import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { AlertServices } from '../_service/alert-services';
-import {Alert, AlertType} from '../_dto/alert.dto'
+import { Alert, AlertType } from '../_dto/alert.dto';
 @Component({
   selector: 'dc-alert-basic',
   templateUrl: './alert-basic.component.html',
@@ -16,14 +16,12 @@ export class AlertBasicComponent implements OnInit, OnDestroy {
   alertSubscription: Subscription | undefined;
   routeSubscription: Subscription | undefined;
 
-  constructor(private router: Router, private alertService: AlertServices,
-  ) {
-  }
+  constructor(private router: Router, private alertService: AlertServices) {}
 
   ngOnInit(): void {
-
     // subscribe to new alert notifications
-    this.alertSubscription = this.alertService.onAlert(this.id)
+    this.alertSubscription = this.alertService
+      .onAlert(this.id)
       .subscribe(alert => {
         // clear alerts when an empty alert is received
         if (!alert.message) {
@@ -80,7 +78,6 @@ export class AlertBasicComponent implements OnInit, OnDestroy {
   }
 
   cssClass(alert: Alert): string {
-
     // if (!alert) {
     //   return;
     // }
@@ -103,5 +100,4 @@ export class AlertBasicComponent implements OnInit, OnDestroy {
 
     return classes.join(' ');
   }
-
 }

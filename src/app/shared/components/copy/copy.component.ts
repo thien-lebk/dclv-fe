@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./copy.component.scss']
 })
 export class CopyComponent implements OnInit {
-  hoverCopyContent = 'Copy';
+  hoverCopyContent;
   @Input() content;
   constructor() {}
 

@@ -8,18 +8,13 @@
       "skipQuickstart": false,
       "initGit": true,
       "appName": "dashcore",
-      "target": [
-        "web"
-      ],
+      "target": ["web"],
       "pwa": false,
       "ui": "bootstrap",
       "auth": true,
       "lazy": true,
       "angulartics": false,
-      "tools": [
-        "prettier",
-        "hads"
-      ],
+      "tools": ["prettier", "hads"],
       "utility": [],
       "projectName": "dashcore",
       "packageManager": "npm",

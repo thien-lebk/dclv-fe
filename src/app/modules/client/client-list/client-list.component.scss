@@ -5,6 +5,10 @@
   padding-top: 24px;
   .container {
     .header {
+      button {
+        min-height: 44px;
+      }
+
       .create-app {
         display: flex;
         justify-content: flex-end;
@@ -27,7 +31,6 @@
         justify-content: start;
         align-items: center;
         text-align: center;
-        background-color: #fbf3f3;
         padding: 10px;
         position: relative;
         .wrap-img {

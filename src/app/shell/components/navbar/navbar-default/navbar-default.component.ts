@@ -5,6 +5,7 @@ import {
   faUserPlus
 } from '@fortawesome/free-solid-svg-icons';
 import { AuthenticationService, CredentialsService } from '@app/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'dc-navbar-default',
@@ -24,24 +25,33 @@ export class NavbarDefaultComponent implements OnInit {
   signInAlt = faSignInAlt;
   userPlus = faUserPlus;
   singOutAlt = faSignOutAlt;
-  isAuthenticated = false;
+  // isAuthenticated = false;
   constructor(
     public cre$: CredentialsService,
-    public auth$: AuthenticationService
+    public auth$: AuthenticationService,
+    public router: Router
   ) {}
-  client:string;
+  client: string;
   ngOnInit() {
-    this.isAuthenticated = this.cre$.isAuthenticated();
     this.client = localStorage.getItem('client');
-
   }
-
+  isAuthenticated(): boolean {
+    return this.cre$.isAuthenticated();
+  }
+  isSelectClient(): boolean {
+    const token = localStorage.getItem('client');
+    if (!token) {
+      return false;
+    }
+    return true;
+  }
   isRightPositioned() {
     return this.position === 'right';
   }
 
   signOut() {
     localStorage.clear();
+    // this.router.navigateByUrl('auth/login')
     window.location.reload();
   }
 }

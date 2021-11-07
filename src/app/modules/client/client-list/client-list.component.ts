@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {
   AppItemTypeEnum,
   AppListItemDto
@@ -29,14 +29,16 @@ export class ClientListComponent implements OnInit {
     private domain$: DomainService,
     private loadingService: LoadingService
   ) {}
-
+  currClient: Client = new Client();
   ngOnInit(): void {
     this.loadingService.startLoading();
     this.client$.get().subscribe(data => {
       this.listItem = data.results;
+      let nameClient = localStorage.getItem('client');
+      if (nameClient) {
+        this.currClient = this.listItem.find(ele => ele.name === nameClient);
+      }
       this.loadingService.stopLoading();
-      console.log(data);
-      
     });
     // this.domain$.get().subscribe(data=>{
     //   console.log(data);
@@ -50,10 +52,10 @@ export class ClientListComponent implements OnInit {
   }
   selectClient(name: string): void {
     localStorage.setItem('client', name);
+    this.currClient = this.listItem.find(ele => ele.name === name);
   }
   onSubmit(): void {
     this.loadingService.startLoadingForm();
-    console.log(this.profileForm.value);
     const clientDto: ClientDto = new ClientDto();
     clientDto.name = this.profileForm.value.name;
     clientDto.schema_name = clientDto.name;

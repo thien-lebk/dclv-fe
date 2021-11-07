@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { ShellModule } from './shell/shell.module';
 import { TranslateModule } from '@ngx-translate/core';
-import {AlertModule} from '../app/modules/alert/alert.module'
+import { AlertModule } from '../app/modules/alert/alert.module';
 import { SharedModule } from '@app/shared';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,6 +18,8 @@ import { AppCreateComponent } from './modules/app-create/app-create.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 export function tokenGetter() {
   return localStorage.getItem('access_token');
 }
@@ -35,6 +37,7 @@ export function tokenGetter() {
     SlidersModule,
     CountersModule,
     FaqsModule,
+    BrowserAnimationsModule,
     CtaModule,
     FootersModule,
     AlertModule,

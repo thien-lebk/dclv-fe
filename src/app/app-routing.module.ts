@@ -128,6 +128,18 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/client/client.module').then(m => m.ClientModule)
   },
+  {
+    path: 'role',
+    canActivate: [AuthenticationGuard],
+    loadChildren: () =>
+      import('./modules/role/role.module').then(m => m.RoleModule)
+  },
+  {
+    path: 'user',
+    canActivate: [AuthenticationGuard],
+    loadChildren: () =>
+      import('./modules/user/user.module').then(m => m.UserModule)
+  },
   // Fallback when no prior route is matched
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

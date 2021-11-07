@@ -1,17 +1,26 @@
 <div class="wrap-content">
   <div class="container">
     <div class="header">
-      <button
-        type="button"
-        class="btn btn-primary"
-        (click)="toggleForm = !toggleForm"
-      >
-        Create new client
-      </button>
+      <div class="d-flex justify-content-between">
+        <button
+          type="button"
+          class="btn btn-primary text-medium"
+          (click)="toggleForm = !toggleForm"
+        >
+          Create new client
+        </button>
+        <dc-menu-client
+          [dynamic]="true"
+          [currItem]="currClient"
+        ></dc-menu-client>
+      </div>
+
       <div *ngIf="toggleForm" class="py-5">
         <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
-            <label for="exampleInputEmailBase" class="form-label mb-0 bold"
+            <label
+              for="exampleInputEmailBase"
+              class="form-label mb-0 bold text-medium"
               >Client name <span class="text-danger">*</span></label
             >
             <input
@@ -23,14 +32,14 @@
               formControlName="name"
             />
           </div>
-          <button class="btn btn-secondary">Submit</button>
+          <button class="btn btn-secondary text-medium">Submit</button>
         </form>
       </div>
     </div>
     <div class="list-app">
       <div
         *ngFor="let item of listItem"
-        class="app border-10 border color-primary my-4"
+        class="app border-10 border color-primary my-4 hover-bg-light"
       >
         <div
           class="wrap-img cursor-pointer"
@@ -48,7 +57,7 @@
           class="name cursor-pointer"
           [routerLink]="['../', 'detail', item.id]"
         >
-          <span class="app-name text-dark">{{ item.name }}</span>
+          <span class="app-name text-dark text-medium">{{ item.name }}</span>
           <!--          <span class='type text-dark'>{{ item.type }}</span>-->
         </div>
 
@@ -58,13 +67,14 @@
         >
           <div>
             <a (click)="goToUrl(item.domains[0].domain)" class="cursor-pointer"
-              ><span class="text-dark">Domain: </span
+              ><span class="text-dark text-medium bold">Domain: </span
               >{{ item.domains[0].domain }}</a
             >
           </div>
           <div>
             <span
-              class="position-absolute cursor-pointer"
+              *ngIf="currClient.name !== item.name"
+              class="position-absolute cursor-pointer text-medium bold .text-secondary"
               (click)="selectClient(item.name)"
               style="right: 0"
               >Select client</span

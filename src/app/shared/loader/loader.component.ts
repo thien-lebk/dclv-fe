@@ -18,7 +18,7 @@ export class LoaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadingSub = this.loadingService.loadingObject.subscribe(data => {
-      console.log(data);
+      // console.log(data);
       this.isLoadingProgress = data.loading;
       this.loadingForm = data.loadingForm;
     });

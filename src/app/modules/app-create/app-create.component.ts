@@ -7,6 +7,7 @@ import {
 } from './_modal/app-create-dto';
 import { AppCreateService } from '@app/modules/app-create/_services/app-create-service';
 import { LoadingService } from '@app/shared/loader/_services/loading-services';
+import { Router } from '@angular/router';
 @Component({
   selector: 'dc-app-create',
   templateUrl: './app-create.component.html',
@@ -21,7 +22,8 @@ export class AppCreateComponent implements OnInit {
   appName = '';
   constructor(
     private appCreate$: AppCreateService,
-    private appLoading$: LoadingService
+    private appLoading$: LoadingService,
+    private router: Router
   ) {}
   public get ClientType() {
     return ClientType;
@@ -40,6 +42,7 @@ export class AppCreateComponent implements OnInit {
 
     this.appCreate$.createApp(data, clientName).subscribe(data2 => {
       this.appLoading$.stopLoadingForm();
+      this.router.navigateByUrl('applications/list');
     });
   }
 }

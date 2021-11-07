@@ -1,50 +1,101 @@
 <div *ngIf="!registerSuccess">
   <h1 class="text-darker bold">Register</h1>
-  <form  [formGroup]="profileForm" class="cozy" action="srv/login.php" data-validate-on="submit" novalidate>
-    <label class="control-label bold small text-uppercase text-secondary">Email</label>
-    <p class="text-danger my-0">{{waring?.email}}</p>
+  <form
+    [formGroup]="profileForm"
+    class="cozy"
+    action="srv/login.php"
+    data-validate-on="submit"
+    novalidate
+  >
+    <label class="control-label bold small text-uppercase text-secondary"
+      >Email</label
+    >
+    <p class="text-danger my-0">{{ waring?.email }}</p>
     <div class="form-group has-icon">
-      <input type="text" id="login_username" name="Login[username]" class="form-control form-control-rounded"
-        placeholder="Your registered username" required formControlName="email" />
+      <input
+        type="text"
+        id="login_username"
+        name="Login[username]"
+        class="form-control form-control-rounded"
+        placeholder="Your registered username"
+        required
+        formControlName="email"
+      />
       <fa-icon [icon]="fa.user" class="icon"></fa-icon>
     </div>
-  
-    <label class="control-label bold small text-uppercase text-secondary">Password</label>
-    <p class="text-danger my-0">{{waring?.password}}</p>
+
+    <label class="control-label bold small text-uppercase text-secondary"
+      >Password</label
+    >
+    <p class="text-danger my-0">{{ waring?.password }}</p>
     <div class="form-group has-icon">
-      <input type="password" id="login_password" name="Login[password]" class="form-control form-control-rounded"
-        placeholder="Your password" required formControlName="password" />
+      <input
+        type="password"
+        id="login_password"
+        name="Login[password]"
+        class="form-control form-control-rounded"
+        placeholder="Your password"
+        required
+        formControlName="password"
+      />
       <fa-icon [icon]="fa.lock" class="icon"></fa-icon>
     </div>
-  
-    <label class="control-label bold small text-uppercase text-secondary">Re-enter password</label>
-    <p class="text-danger my-0">{{waring?.rePassword}}</p>
+
+    <label class="control-label bold small text-uppercase text-secondary"
+      >Re-enter password</label
+    >
+    <p class="text-danger my-0">{{ waring?.rePassword }}</p>
     <div class="form-group has-icon">
-      <input type="password" id="login_repassword" name="Login[repassword]" class="form-control form-control-rounded"
-        placeholder="Your password" required formControlName="repassword" />
+      <input
+        type="password"
+        id="login_repassword"
+        name="Login[repassword]"
+        class="form-control form-control-rounded"
+        placeholder="Your password"
+        required
+        formControlName="repassword"
+      />
       <fa-icon [icon]="fa.lock" class="icon"></fa-icon>
     </div>
-  
-  
-    <label class="control-label bold small text-uppercase text-secondary">Name</label>
-    <p class="text-danger my-0">{{waring?.name}}</p>
+
+    <label class="control-label bold small text-uppercase text-secondary"
+      >Name</label
+    >
+    <p class="text-danger my-0">{{ waring?.name }}</p>
     <div class="form-group has-icon">
-      <input type="text" id="login_name" name="Login[name]" class="form-control form-control-rounded"
-        placeholder="Your name" required formControlName="name" />
+      <input
+        type="text"
+        id="login_name"
+        name="Login[name]"
+        class="form-control form-control-rounded"
+        placeholder="Your name"
+        required
+        formControlName="name"
+      />
       <fa-icon [icon]="fa.userAlt" class="icon"></fa-icon>
     </div>
-  
-    <label class="control-label bold small text-uppercase text-secondary">Phone number</label>
-    <p class="text-danger my-0">{{waring?.phone}}</p>
+
+    <label class="control-label bold small text-uppercase text-secondary"
+      >Phone number</label
+    >
+    <p class="text-danger my-0">{{ waring?.phone }}</p>
     <div class="form-group has-icon">
-      <input type="text" id="login_phone" name="Login[phone]" class="form-control form-control-rounded"
-        placeholder="Your phone" required formControlName="phone" />
+      <input
+        type="text"
+        id="login_phone"
+        name="Login[phone]"
+        class="form-control form-control-rounded"
+        placeholder="Your phone"
+        required
+        formControlName="phone"
+      />
       <fa-icon [icon]="fa.phone" class="icon"></fa-icon>
     </div>
-  
-  
+
     <div class="form-group d-flex align-items-center justify-content-between">
-      <a [routerLink]="['../forgot']" class="text-warning small">Forgot your password?</a>
+      <a [routerLink]="['../forgot']" class="text-warning small"
+        >Forgot your password?</a
+      >
       <div class="ajax-button">
         <div class="fas fa-check btn-status text-success success"></div>
         <div class="fas fa-times btn-status text-danger failed"></div>
@@ -58,5 +109,8 @@
 <div *ngIf="registerSuccess">
   <h3>Register success</h3>
   <h3>Redirect to login page</h3>
-  <img src="https://vn-live.slatic.net/other/roc/0d8945c265c535c7e00d6919ae03dea2.gif" alt="">
+  <img
+    src="https://vn-live.slatic.net/other/roc/0d8945c265c535c7e00d6919ae03dea2.gif"
+    alt=""
+  />
 </div>

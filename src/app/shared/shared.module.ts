@@ -55,7 +55,8 @@ import {
   ArrowLeft,
   ArrowRight,
   Repeat,
-  Bell
+  Bell,
+  Menu
 } from 'angular-feather/icons';
 
 import { LoaderComponent } from './loader/loader.component';
@@ -66,6 +67,10 @@ import { CopyComponent } from './components/copy/copy.component';
 import { ClipboardModule } from '@angular/cdk/clipboard';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MenuClientComponent } from './components/menu-client/menu-client.component';
+import { RouterModule } from '@angular/router';
+import { SettingMenuComponent } from './components/setting-menu/setting-menu.component';
+import { SettingRoleComponent } from './setting-role/setting-role.component';
 
 // Select some icons (use an object, not an array)
 const icons = {
@@ -130,25 +135,31 @@ const icons = {
     FontAwesomeModule,
     ClipboardModule,
     MatProgressBarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    RouterModule
   ],
   declarations: [
     LoaderComponent,
     PageHeaderWaveComponent,
     FeatherComponent,
     BadgeComponent,
-    CopyComponent
+    CopyComponent,
+    MenuClientComponent,
+    SettingMenuComponent,
+    SettingRoleComponent
   ],
   exports: [
     LoaderComponent,
     PageHeaderWaveComponent,
     FeatherComponent,
     BadgeComponent,
-
+    SettingMenuComponent,
     CommonModule,
     HttpClientModule,
     FontAwesomeModule,
-    CopyComponent
+    CopyComponent,
+    MenuClientComponent,
+    SettingRoleComponent
   ]
 })
 export class SharedModule {}

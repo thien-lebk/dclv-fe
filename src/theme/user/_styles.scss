@@ -2,3 +2,27 @@
 // user/styles.scss
 // This file is mean to write your custom styling rules
 // It is recommended you do this way and not by editing the Bootstrap or DashCore styling files directly because future updates
+.text-large {
+  font-size: 16px;
+  @media screen and (max-width: 767px) {
+    font-size: 14px;
+  }
+}
+.text-medium {
+  font-size: 14px;
+  @media screen and (max-width: 767px) {
+    font-size: 12px;
+  }
+}
+.text-small {
+  font-size: 12px;
+  @media screen and (max-width: 767px) {
+    font-size: 10px;
+  }
+}
+.hover-bg-light:hover {
+  background-color: var(--light) !important;
+}
+.hover-color-secondary:hover {
+  color: var(--secondary) !important;
+}

@@ -41,7 +41,12 @@ export class AppCreateService {
     const urlSrc = localStorage.getItem('client');
 
     const url =
-    'http://www.' + urlSrc + '.' + `${MainSource.domain}/api/applications/` + urlData + '/';
+      'http://www.' +
+      urlSrc +
+      '.' +
+      `${MainSource.domain}/api/applications/` +
+      urlData +
+      '/';
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',

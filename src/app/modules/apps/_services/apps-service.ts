@@ -11,7 +11,7 @@ import { AppcreateDto } from '../../app-create/_modal/app-create-dto';
 })
 // @ts-ignore
 export class ApplicationService {
-  constructor(private http: HttpClient, public jwtHelper: JwtHelperService) { }
+  constructor(private http: HttpClient, public jwtHelper: JwtHelperService) {}
   createApp(data: AppcreateDto, urlData: string): Observable<any> {
     const token = localStorage.getItem('access');
     const url =
@@ -42,7 +42,12 @@ export class ApplicationService {
     const urlSrc = localStorage.getItem('client');
 
     const url =
-      'http://www.' + urlSrc + '.' + `${MainSource.domain}/api/applications/` + urlData + '/';
+      'http://www.' +
+      urlSrc +
+      '.' +
+      `${MainSource.domain}/api/applications/` +
+      urlData +
+      '/';
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -51,13 +56,21 @@ export class ApplicationService {
     };
     return this.http.get<any>(url, httpOptions);
   }
-  updateDetailApp(id: number, updateAppDetailDto: UpdateAppDetailDto): Observable<any> {
+  updateDetailApp(
+    id: number,
+    updateAppDetailDto: UpdateAppDetailDto
+  ): Observable<any> {
     const token = localStorage.getItem('access');
     const urlSrc = localStorage.getItem('client');
     const body = JSON.stringify(updateAppDetailDto);
 
     const url =
-      'http://www.' + urlSrc + '.' + `${MainSource.domain}/api/applications/` + id + '/';
+      'http://www.' +
+      urlSrc +
+      '.' +
+      `${MainSource.domain}/api/applications/` +
+      id +
+      '/';
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -71,7 +84,12 @@ export class ApplicationService {
     const urlSrc = localStorage.getItem('client');
 
     const url =
-      'http://www.' + urlSrc + '.' + `${MainSource.domain}/api/applications/` + id + '/';
+      'http://www.' +
+      urlSrc +
+      '.' +
+      `${MainSource.domain}/api/applications/` +
+      id +
+      '/';
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',

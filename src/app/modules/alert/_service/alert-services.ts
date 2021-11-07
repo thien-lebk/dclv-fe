@@ -1,10 +1,9 @@
-import {Injectable} from '@angular/core';
-import {Observable, Subject} from 'rxjs';
-import {Alert, AlertType} from '../_dto/alert.dto';
-import {filter} from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+import { Alert, AlertType } from '../_dto/alert.dto';
+import { filter } from 'rxjs/operators';
 
-
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class AlertServices {
   private subject = new Subject<Alert>();
   private defaultId = 'default-alert';
@@ -16,19 +15,19 @@ export class AlertServices {
 
   // convenience methods
   success(message: string, options?: any): void {
-    this.alert(new Alert({...options, type: AlertType.Success, message}));
+    this.alert(new Alert({ ...options, type: AlertType.Success, message }));
   }
 
   error(message: string, options?: any): void {
-    this.alert(new Alert({...options, type: AlertType.Error, message}));
+    this.alert(new Alert({ ...options, type: AlertType.Error, message }));
   }
 
   info(message: string, options?: any): void {
-    this.alert(new Alert({...options, type: AlertType.Info, message}));
+    this.alert(new Alert({ ...options, type: AlertType.Info, message }));
   }
 
   warn(message: string, options?: any): void {
-    this.alert(new Alert({...options, type: AlertType.Warning, message}));
+    this.alert(new Alert({ ...options, type: AlertType.Warning, message }));
   }
 
   // main alert method
@@ -39,6 +38,6 @@ export class AlertServices {
 
   // clear alerts
   clear(id = this.defaultId): void {
-    this.subject.next(new Alert({id}));
+    this.subject.next(new Alert({ id }));
   }
 }

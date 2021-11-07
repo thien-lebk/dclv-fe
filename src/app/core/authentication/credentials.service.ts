@@ -38,15 +38,19 @@ export class CredentialsService {
    */
   isAuthenticated(): boolean {
     const token = localStorage.getItem('access');
-    if (!token) {      
+    if (!token) {
       return false;
     } else if (this.jwtHelper.isTokenExpired(token)) {
       const tokenR = localStorage.getItem('refresh');
-      this.getNewToken(tokenR).subscribe(res => {
-        localStorage.setItem('refresh', res.refresh);
-        localStorage.setItem('access', res.access);
-        return true;
-      });
+      // this.getNewToken(tokenR).subscribe(res => {
+      //   localStorage.setItem('refresh', res.refresh);
+      //   localStorage.setItem('access', res.access);
+      //   return true;
+      // });
+      // console.log('hêre');
+      localStorage.clear();
+
+      return false;
     }
     return true;
   }

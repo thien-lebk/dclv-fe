@@ -1,0 +1,217 @@
+<div class="container my-4">
+  <a
+    class="btn btn-info text-light text-medium"
+    [routerLink]="['../../', 'list']"
+    >< Back</a
+  >
+  <div class="mt-4">
+    <h3>Role</h3>
+    <div>
+      <span class="text-medium my-auto"
+        >Role ID: <span class="text-medium text-dark bg-light">{{ id }}</span>
+      </span>
+    </div>
+  </div>
+  <mat-tab-group mat-align-tabs="center">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span class="text-medium bold text-dark text-uppercase">Settings</span>
+      </ng-template>
+
+      <form [formGroup]="profileForm" class="my-4" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label
+            for="exampleInputEmailBase"
+            class="form-label mb-0 bold text-medium"
+            >Role name <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputEmailBase"
+            aria-describedby="emailHelp"
+            placeholder="Enter name"
+            formControlName="name"
+          />
+        </div>
+        <div class="form-group">
+          <label
+            for="exampleInputRoleBase"
+            class="form-label mb-0 bold text-medium"
+            >Role Description <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputRoleBase"
+            aria-describedby="emailHelp"
+            placeholder="Enter name"
+            formControlName="description"
+          />
+        </div>
+        <button class="btn btn-secondary text-medium">Save</button>
+      </form>
+      <div
+        class="row align-items-start gap-y pt-4 mx-0 px-0 mt-4 pb-4 mb-4 border-bottom"
+      >
+        <div class="col-12 bold px-0 text-black mx-0 px-0">Danger Zone</div>
+        <div class="col-8 col-md-10 text-danger mx-0 px-0">
+          <p>Delete this application</p>
+          <p>All your apps using this client will stop working.</p>
+        </div>
+        <div class="col-4 col-md-2 margin-auto mx-0 px-0">
+          <button class="btn-danger border-10" (click)="onDelete()">
+            Delete
+          </button>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span class="text-medium bold text-dark text-uppercase "
+          >Permission</span
+        >
+      </ng-template>
+      <div class="container my-4">
+        <div class="header mb-4">
+          <div class="d-flex justify-content-between">
+            <h4 class="text-title-small bold text-uppercase">Permission</h4>
+
+            <!--            (click)="toggleForm = !toggleForm"-->
+            <button type="button" class="btn btn-primary text-large">
+              Add
+            </button>
+          </div>
+          <h5 class="text-medium my-3">
+            Add Permissions to this Role. Users who have this Role will receive
+            all Permissions below that match the API of their login request.
+          </h5>
+
+          <!--          <div *ngIf="toggleForm" class="py-5">-->
+          <!--            <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">-->
+          <!--              <div class="form-group">-->
+          <!--                <label for="exampleInputEmailBase" class="form-label mb-0 bold text-medium"-->
+          <!--                >Role name <span class="text-danger">*</span></label-->
+          <!--                >-->
+          <!--                <input-->
+          <!--                  type="text"-->
+          <!--                  class="form-control"-->
+          <!--                  id="exampleInputEmailBase"-->
+          <!--                  aria-describedby="emailHelp"-->
+          <!--                  placeholder="Enter name"-->
+          <!--                  formControlName="name"-->
+          <!--                />-->
+          <!--              </div>-->
+          <!--              <div class="form-group">-->
+          <!--                <label for="exampleInputRoleBase" class="form-label mb-0 bold text-medium"-->
+          <!--                >Role Description <span class="text-danger">*</span></label-->
+          <!--                >-->
+          <!--                <input-->
+          <!--                  type="text"-->
+          <!--                  class="form-control"-->
+          <!--                  id="exampleInputRoleBase"-->
+          <!--                  aria-describedby="emailHelp"-->
+          <!--                  placeholder="Enter name"-->
+          <!--                  formControlName="description"-->
+          <!--                />-->
+          <!--              </div>-->
+          <!--              <button class="btn btn-secondary text-medium">Submit</button>-->
+          <!--            </form>-->
+          <!--          </div>-->
+        </div>
+        <table class="table">
+          <thead>
+            <tr class="text-dark">
+              <th scope="col">Permission</th>
+              <th scope="col">Description</th>
+              <th scope="col">API</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!--          <tr class='text-dark'  *ngFor='let item of listItem'>-->
+            <!--            <td>{{item.name}}</td>-->
+            <!--            <td>{{item.description}}</td>-->
+            <!--            <td>-->
+            <!--              &lt;!&ndash;        <dc-setting-role></dc-setting-role>&ndash;&gt;-->
+            <!--              <a [routerLink]="['../','detail',item.id]" class='text-primary bold'>Edit</a>-->
+            <!--            </td>-->
+
+            <!--          </tr>-->
+          </tbody>
+        </table>
+      </div>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <span class="text-medium bold text-dark text-uppercase">User</span>
+      </ng-template>
+      <div class="container my-4">
+        <div class="header mb-4">
+          <div class="d-flex justify-content-between">
+            <h4 class="text-title-small bold text-uppercase">User</h4>
+
+            <!--            (click)="toggleForm = !toggleForm"-->
+            <button type="button" class="btn btn-primary text-large">
+              Add
+            </button>
+          </div>
+          <h5 class="text-medium my-3">
+            Users that have this role directly assigned.
+          </h5>
+
+          <!--          <div *ngIf="toggleForm" class="py-5">-->
+          <!--            <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">-->
+          <!--              <div class="form-group">-->
+          <!--                <label for="exampleInputEmailBase" class="form-label mb-0 bold text-medium"-->
+          <!--                >Role name <span class="text-danger">*</span></label-->
+          <!--                >-->
+          <!--                <input-->
+          <!--                  type="text"-->
+          <!--                  class="form-control"-->
+          <!--                  id="exampleInputEmailBase"-->
+          <!--                  aria-describedby="emailHelp"-->
+          <!--                  placeholder="Enter name"-->
+          <!--                  formControlName="name"-->
+          <!--                />-->
+          <!--              </div>-->
+          <!--              <div class="form-group">-->
+          <!--                <label for="exampleInputRoleBase" class="form-label mb-0 bold text-medium"-->
+          <!--                >Role Description <span class="text-danger">*</span></label-->
+          <!--                >-->
+          <!--                <input-->
+          <!--                  type="text"-->
+          <!--                  class="form-control"-->
+          <!--                  id="exampleInputRoleBase"-->
+          <!--                  aria-describedby="emailHelp"-->
+          <!--                  placeholder="Enter name"-->
+          <!--                  formControlName="description"-->
+          <!--                />-->
+          <!--              </div>-->
+          <!--              <button class="btn btn-secondary text-medium">Submit</button>-->
+          <!--            </form>-->
+          <!--          </div>-->
+        </div>
+        <table class="table">
+          <thead>
+            <tr class="text-dark">
+              <th scope="col">Permission</th>
+              <th scope="col">Description</th>
+              <th scope="col">API</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!--          <tr class='text-dark'  *ngFor='let item of listItem'>-->
+            <!--            <td>{{item.name}}</td>-->
+            <!--            <td>{{item.description}}</td>-->
+            <!--            <td>-->
+            <!--              &lt;!&ndash;        <dc-setting-role></dc-setting-role>&ndash;&gt;-->
+            <!--              <a [routerLink]="['../','detail',item.id]" class='text-primary bold'>Edit</a>-->
+            <!--            </td>-->
+
+            <!--          </tr>-->
+          </tbody>
+        </table>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

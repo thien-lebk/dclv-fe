@@ -1,0 +1,71 @@
+<div *ngIf="dynamic === false" class="wrap-cont ">
+  <div class="wrap-name d-flex">
+    <div class="border border-10 px-1 " style="min-width: 100px;">
+      <div class="client-name">
+        <span class="bold text-dark">{{ currItem.name }}</span>
+      </div>
+      <div class="mode" *ngIf="currItem.domains">
+        <span class="">{{ currItem.domains[0].domain }}</span>
+      </div>
+    </div>
+    <div class="dropdown-icon">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </div>
+  </div>
+
+  <div class="dropdown-menu border-10">
+    <div *ngIf="isLoadingClient" style="z-index: 999;width: 100%; height: 100%">
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+    <div class="wrap-list border-10" *ngIf="!isLoadingClient">
+      <div class="search">
+        <input
+          type="text"
+          placeholder="Search..."
+          (input)="changeSeachForm($event)"
+          style="width: 100%"
+        />
+      </div>
+      <div class="list-item">
+        <div
+          class="item"
+          *ngFor="let item of listClientItem"
+          (click)="changeItem(item.name)"
+        >
+          <span class="c-name">{{ item.name }}</span>
+          <!--              <span class="domain">Domain</span>-->
+          <span class="develop">{{ item.domains[0].domain }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="setting border-primary">
+      <a class="text-primary" [routerLink]="['../../', 'client', 'list']"
+        >Setting</a
+      >
+    </div>
+  </div>
+</div>
+<div *ngIf="dynamic === true && currItem.name" class="wrap-cont ">
+  <div class="wrap-name d-flex">
+    <div class="border border-10 px-1 " style="min-width: 100px;">
+      <div class="client-name">
+        <span class="bold text-dark">{{ currItem.name }}</span>
+      </div>
+      <div class="mode" *ngIf="currItem.domains">
+        <span class="">{{ currItem.domains[0].domain }}</span>
+      </div>
+    </div>
+  </div>
+</div>

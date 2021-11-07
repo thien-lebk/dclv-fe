@@ -1,0 +1,76 @@
+<div class="container my-4">
+  <div class="header mb-4">
+    <div class="d-flex justify-content-between">
+      <h4 class="text-title-small bold text-uppercase">Roles</h4>
+
+      <button
+        type="button"
+        class="btn btn-primary text-large"
+        (click)="toggleForm = !toggleForm"
+      >
+        Create new Role
+      </button>
+    </div>
+    <h5 class="text-medium my-3">
+      Create and manage Roles for your applications. Roles contain collections
+      of Permissions and can be assigned to Users.
+    </h5>
+
+    <div *ngIf="toggleForm" class="py-5">
+      <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label
+            for="exampleInputEmailBase"
+            class="form-label mb-0 bold text-medium"
+            >Role name <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputEmailBase"
+            aria-describedby="emailHelp"
+            placeholder="Enter name"
+            formControlName="name"
+          />
+        </div>
+        <div class="form-group">
+          <label
+            for="exampleInputRoleBase"
+            class="form-label mb-0 bold text-medium"
+            >Role Description <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputRoleBase"
+            aria-describedby="emailHelp"
+            placeholder="Enter name"
+            formControlName="description"
+          />
+        </div>
+        <button class="btn btn-secondary text-medium">Submit</button>
+      </form>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr class="text-dark">
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="text-dark" *ngFor="let item of listItem">
+        <td>{{ item.name }}</td>
+        <td>{{ item.description }}</td>
+        <td>
+          <!--        <dc-setting-role></dc-setting-role>-->
+          <a [routerLink]="['../', 'detail', item.id]" class="text-primary bold"
+            >Edit</a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

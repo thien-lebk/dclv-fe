@@ -2,22 +2,17 @@ span {
   margin-right: 10px;
 }
 img {
-  width: 21px;
+  width: 17px;
   margin-bottom: 6px;
+}
+img:hover {
+  transform: scale(1.1);
 }
 .copy-icon {
   .copy-text {
-    right: -21px;
+    right: -16px;
     top: -36px;
     padding: 5px 5px;
     margin-right: 0;
-  }
-  span {
-    display: none;
-  }
-}
-.copy-icon:hover {
-  span {
-    display: block;
   }
 }

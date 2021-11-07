@@ -18,7 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [AppListComponent, AppsDetailComponent],
@@ -40,7 +40,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatIconModule,
     MatProgressBarModule,
     ReactiveFormsModule,
-    MatSelectModule,
+    MatSelectModule
   ]
 })
 export class AppsModule {}

@@ -1,5 +1,4 @@
 export enum ClientType {
-    Confidential = 'confidential',
-    Public  = 'public '
-  }
-  
+  Confidential = 'confidential',
+  Public = 'public '
+}

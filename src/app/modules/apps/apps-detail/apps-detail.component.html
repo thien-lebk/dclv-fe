@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <h1 class="bold display-md-4 text-contrast mb-4">Default App</h1>
+        <h1 class="bold display-md-4 text-contrast mb-4">Setting</h1>
       </div>
     </div>
   </div>
@@ -10,54 +10,120 @@
 
 <section class="section bg-light edge top-left ">
   <div class="container bring-to-front border border-10 ">
-
+    <a
+      [routerLink]="['../../', 'list']"
+      routerLinkActive="router-link-active"
+      type="button"
+      class="btn btn-primary position-absolute"
+    >
+      Back
+    </a>
     <div class="row align-items-start gap-y pt-4 mt-4 pb-4 border-bottom">
       <div class="col-md-6 col-lg-5 text-center text-md-left">
         <h2 class="text-dark light">Basic information</h2>
       </div>
 
       <div class="col-md-6 col-lg-6">
-        <form action=";" class="cozy" novalidate="novalidate" style="text-align: start" [formGroup]="profileForm"
-          onsubmit="">
+        <form
+          action=";"
+          class="cozy"
+          novalidate="novalidate"
+          style="text-align: start"
+          [formGroup]="profileForm"
+          onsubmit=""
+        >
           <div class="form-group">
-            <label class="form-label mb-0 text-black bold">Name<span class="text-danger">*</span></label>
-            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2"></div>
+            <label class="form-label mb-0 text-black bold"
+              >Name<span class="text-danger">*</span></label
+            >
+            <div
+              class="form-text text-secondary text-ceau-secondary mt-0 mb-2"
+            ></div>
             <div class="position-relative">
-              <input type="text" class="form-control mb-2 mt-2 pr-4" aria-describedby="emailHelp"
-                placeholder="Enter Name" formControlName="name" />
-              <dc-copy class="position-absolute" style="top: 8px; right: 6px" [content]="appDetail.name"></dc-copy>
+              <input
+                type="text"
+                class="form-control mb-2 mt-2 pr-4"
+                aria-describedby="emailHelp"
+                placeholder="Enter Name"
+                formControlName="name"
+              />
+              <dc-copy
+                class="position-absolute"
+                style="top: 8px; right: 6px"
+                [content]="appDetail.name"
+              ></dc-copy>
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label mb-0 text-black bold">Domain<span class="text-danger">*</span></label>
-            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2"></div>
+            <label class="form-label mb-0 text-black bold"
+              >Domain<span class="text-danger">*</span></label
+            >
+            <div
+              class="form-text text-secondary text-ceau-secondary mt-0 mb-2"
+            ></div>
             <div class="position-relative">
-              <input type="text" class="form-control mb-2 mt-2 pr-4" aria-describedby="emailHelp"
-                placeholder="Enter Domain" formControlName="domain" />
-              <dc-copy class="position-absolute" style="top: 8px; right: 6px" [content]="appDetail.domain"></dc-copy>
+              <input
+                type="text"
+                class="form-control mb-2 mt-2 pr-4"
+                aria-describedby="emailHelp"
+                placeholder="Enter Domain"
+                formControlName="domain"
+              />
+              <dc-copy
+                class="position-absolute"
+                style="top: 8px; right: 6px"
+                [content]="appDetail.domain"
+              ></dc-copy>
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label mb-0 text-black bold">Client ID<span class="text-danger">*</span></label>
-            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2"></div>
+            <label class="form-label mb-0 text-black bold"
+              >Client ID<span class="text-danger">*</span></label
+            >
+            <div
+              class="form-text text-secondary text-ceau-secondary mt-0 mb-2"
+            ></div>
             <div class="position-relative">
-              <input type="text" class="form-control mb-2 mt-2 pr-4" aria-describedby="emailHelp"
-                placeholder="Enter Domain" formControlName="client_id" />
-              <dc-copy class="position-absolute" style="top: 8px; right: 6px" [content]="appDetail.client_id"></dc-copy>
+              <input
+                type="text"
+                class="form-control mb-2 mt-2 pr-4"
+                aria-describedby="emailHelp"
+                placeholder="Enter Domain"
+                formControlName="client_id"
+              />
+              <dc-copy
+                class="position-absolute"
+                style="top: 8px; right: 6px"
+                [content]="appDetail.client_id"
+              ></dc-copy>
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label mb-0 text-black bold">Client Secret<span class="text-danger">*</span></label>
+            <label class="form-label mb-0 text-black bold"
+              >Client Secret<span class="text-danger">*</span></label
+            >
             <div class="position-relative">
-              <input type="text" class="form-control mb-2 mt-2 pr-4" aria-describedby="emailHelp"
-                placeholder="Enter Domain" formControlName="client_secret" />
-              <dc-copy class="position-absolute" style="top: 8px; right: 6px" [content]="appDetail.client_secret">
+              <input
+                type="text"
+                class="form-control mb-2 mt-2 pr-4"
+                aria-describedby="emailHelp"
+                placeholder="Enter Domain"
+                formControlName="client_secret"
+              />
+              <dc-copy
+                class="position-absolute"
+                style="top: 8px; right: 6px"
+                [content]="appDetail.client_secret"
+              >
               </dc-copy>
             </div>
             <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
               The Client Secret is not base64 encoded.
             </div>
           </div>
+          <a class="btn btn-info" [href]="appDetail.domain + '/accounts/login/'"
+            >Login Page</a
+          >
         </form>
       </div>
     </div>
@@ -67,15 +133,29 @@
       </div>
 
       <div class="col-md-6 col-lg-6">
-        <form action=";" class="cozy" novalidate="novalidate" style="text-align: start" [formGroup]="profileForm">
+        <form
+          action=";"
+          class="cozy"
+          novalidate="novalidate"
+          style="text-align: start"
+          [formGroup]="profileForm"
+        >
           <div class="form-group">
-            <label class="form-label mb-0 text-black bold">Application Logo<span class="text-danger">*</span></label>
+            <label class="form-label mb-0 text-black bold"
+              >Application Logo<span class="text-danger">*</span></label
+            >
             <div class="center-flex border-1px-grey p-3 mt-2 border-10">
               <img [src]="logoSrc" style="height: 60px; width: 60px" alt="" />
             </div>
             <div class="center-flex">
-              <input type="text" class="form-control mb-2 mt-2" aria-describedby="emailHelp"
-                placeholder="Enter Url Image" [(ngModel)]="logoSrc" [ngModelOptions]="{ standalone: true }" />
+              <input
+                type="text"
+                class="form-control mb-2 mt-2"
+                aria-describedby="emailHelp"
+                placeholder="Enter Url Image"
+                [(ngModel)]="logoSrc"
+                [ngModelOptions]="{ standalone: true }"
+              />
             </div>
 
             <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
@@ -85,12 +165,21 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label mb-0 text-black bold">Authorization Grant Type<span class="text-danger">*</span></label>
+            <label class="form-label mb-0 text-black bold"
+              >Authorization Grant Type<span class="text-danger">*</span></label
+            >
 
-            <select class="form-select form-control-rounded valid" aria-invalid="false"
-              formControlName="authorization_grant_type">
-              <option *ngFor="let app of listAuthorizationGrantType" [value]="app.value"
-                [selected]="app.value == appDetail.authorization_grant_type">{{ app.name }}</option>
+            <select
+              class="form-select form-control-rounded valid"
+              aria-invalid="false"
+              formControlName="authorization_grant_type"
+            >
+              <option
+                *ngFor="let app of listAuthorizationGrantType"
+                [value]="app.value"
+                [selected]="app.value == appDetail.authorization_grant_type"
+                >{{ app.name }}</option
+              >
             </select>
             <!-- <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
               The type of application will determine which settings you can
@@ -98,14 +187,24 @@
             </div> -->
           </div>
           <div class="form-group">
-            <label class="form-label mb-0 text-black bold">Application Type<span class="text-danger">*</span></label>
+            <label class="form-label mb-0 text-black bold"
+              >Application Type<span class="text-danger">*</span></label
+            >
 
-            <select class="form-select form-control-rounded valid" aria-invalid="false"
-              formControlName="type">
-              <option  [value]="null"
-                [selected]="appDetail.type == null">None</option>
-              <option *ngFor="let app of listAppType" [value]="app.value"
-                [selected]="app.value == appDetail.type">{{ app.name }}</option>
+            <select
+              class="form-select form-control-rounded valid"
+              aria-invalid="false"
+              formControlName="type"
+            >
+              <option [value]="null" [selected]="appDetail.type == null"
+                >None</option
+              >
+              <option
+                *ngFor="let app of listAppType"
+                [value]="app.value"
+                [selected]="app.value == appDetail.type"
+                >{{ app.name }}</option
+              >
             </select>
             <!-- <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
               The type of application will determine which settings you can
@@ -131,7 +230,6 @@
               'Basic' (application uses HTTP Basic).
             </div>
           </div> -->
-
         </form>
       </div>
     </div>
@@ -141,14 +239,24 @@
       </div>
 
       <div class="col-md-6 col-lg-6">
-        <form action=";" class="cozy" novalidate="novalidate" style="text-align: start"  [formGroup]="profileForm">
+        <form
+          action=";"
+          class="cozy"
+          novalidate="novalidate"
+          style="text-align: start"
+          [formGroup]="profileForm"
+        >
           <div class="form-group">
-            <label class="form-label mb-0 text-black bold">
-              Redirect URL</label>
-            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2"></div>
+            <label class="form-label mb-0 text-black bold"> Redirect URL</label>
+            <div
+              class="form-text text-secondary text-ceau-secondary mt-0 mb-2"
+            ></div>
             <div class="position-relative">
-              <input type="text" class="form-control mb-2 mt-2 pr-4" placeholder="https://myapp.com"
-              formControlName="redirect_uris"
+              <input
+                type="text"
+                class="form-control mb-2 mt-2 pr-4"
+                placeholder="https://myapp.com"
+                formControlName="redirect_uris"
               />
             </div>
             <!-- <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
@@ -427,7 +535,9 @@
       </div>
     </div> -->
     <div class="save-change center-flex">
-      <button class="btn-primary border-10 save-change " (click)="onSubmit()">Save change</button>
+      <button class="btn-primary border-10 save-change " (click)="onSubmit()">
+        Save change
+      </button>
     </div>
     <div class="row align-items-start gap-y pt-4 mt-4 pb-4 mb-4 border-bottom">
       <div class="col-12 bold text-black">Danger Zone</div>
@@ -436,7 +546,9 @@
         <p>All your apps using this client will stop working.</p>
       </div>
       <div class="col-4 col-md-2 margin-auto">
-        <button class="btn-danger border-10" (click)="onDelete()">Delete</button>
+        <button class="btn-danger border-10" (click)="onDelete()">
+          Delete
+        </button>
       </div>
       <div class="col-8 col-md-10 text-danger">
         <p>Rotate secret</p>

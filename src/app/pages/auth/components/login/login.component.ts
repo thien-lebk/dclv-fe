@@ -7,6 +7,7 @@ import {
 import { FormControl, FormGroup } from '@angular/forms';
 import { AuthenticationService, CredentialsService } from '@app/core';
 import { Router } from '@angular/router';
+import { LoadingService } from '@app/shared/loader/_services/loading-services';
 
 @Component({
   selector: 'dc-login',
@@ -26,7 +27,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private auth$: AuthenticationService,
     private cre$: CredentialsService,
-    private router: Router
+    private router: Router,
+    private loading$: LoadingService
   ) {}
 
   ngOnInit() {
@@ -35,13 +37,13 @@ export class LoginComponent implements OnInit {
     }
   }
   onSubmit(): void {
-    // this.loading$.startLoading();
+    this.loading$.startLoading();
     this.auth$.login(this.profileForm.value).subscribe(
       ele => {
         localStorage.setItem('refresh', ele.refresh);
         localStorage.setItem('access', ele.access);
-        // this.loading$.stopLoading();
-        window.location.reload();
+        this.loading$.stopLoading();
+        this.router.navigateByUrl('/');
       },
       error => {
         // console.log(error.error);
