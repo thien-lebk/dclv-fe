@@ -43,15 +43,6 @@ export class UserCreateComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(): void {
-    console.log(this.profileForm.value);
-
-    // email: "thientest3@gmail.com"
-    // id: "a64335d3-935e-4371-bed6-711671183fee"
-    // is_active: true
-    // last_login: null
-    // name: "thien"
-    // phone: "0394946767"
-    // username: null
     this.profileForm.value.is_active = true;
     if (this.profileForm.value.password !== this.profileForm.value.repassword) {
       this.waring = { rePassword: 'Passwords must match' };

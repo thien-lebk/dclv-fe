@@ -57,13 +57,13 @@
     </div>
   </div>
 </div>
-<div *ngIf="dynamic === true && currItem.name" class="wrap-cont ">
+<div *ngIf="dynamic === true && currItem.name" class="wrap-cont text-light ">
   <div class="wrap-name d-flex">
-    <div class="border border-10 px-1 " style="min-width: 100px;">
-      <div class="client-name">
-        <span class="bold text-dark">{{ currItem.name }}</span>
+    <div class="gradient-border px-1 " style="max-width: 150px;">
+      <div class="client-name overflow-hidden">
+        <span class="bold">{{ currItem.name }}</span>
       </div>
-      <div class="mode" *ngIf="currItem.domains">
+      <div class="mode overflow-hidden" *ngIf="currItem.domains">
         <span class="">{{ currItem.domains[0].domain }}</span>
       </div>
     </div>

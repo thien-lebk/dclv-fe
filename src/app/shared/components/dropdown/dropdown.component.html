@@ -1,0 +1,32 @@
+<!--<div ngbDropdown class="d-inline-block action-op">-->
+<!--  <div-->
+<!--    style="height: 30px"-->
+<!--    class="cursor-pointer bg-secondary border-10"-->
+<!--    ngbDropdownToggle-->
+<!--  >-->
+<!--    ...-->
+<!--  </div>-->
+<!--  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">-->
+<!--    <button ngbDropdownItem>Quick start</button>-->
+<!--&lt;!&ndash;    <a&ndash;&gt;-->
+<!--&lt;!&ndash;      ngbDropdownItem&ndash;&gt;-->
+<!--&lt;!&ndash;      [routerLink]="['../', 'detail', item.id]"&ndash;&gt;-->
+<!--&lt;!&ndash;      [state]="item"&ndash;&gt;-->
+<!--&lt;!&ndash;    >&ndash;&gt;-->
+<!--&lt;!&ndash;      Settings&ndash;&gt;-->
+<!--&lt;!&ndash;    </a>&ndash;&gt;-->
+<!--    <button ngbDropdownItem>Addons</button>-->
+<!--    <button ngbDropdownItem>Connections</button>-->
+<!--    <button ngbDropdownItem>Organizations</button>-->
+<!--  </div>-->
+<!--</div>-->
+<div ngbDropdown class="d-inline-block cursor-pointer">
+  <div class="btn px-1 py-1 " id="dropdownBasic1" ngbDropdownToggle>
+    <mat-icon class="text-info">settings</mat-icon>
+  </div>
+  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+    <button *ngFor="let item of data" [routerLink]="item.url" ngbDropdownItem>
+      {{ item.title }}
+    </button>
+  </div>
+</div>

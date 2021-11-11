@@ -1,0 +1,80 @@
+<div
+  *ngIf="false"
+  class="position-absolute button-close"
+  (click)="showCloseBtn = false"
+  style="z-index: 11111111;z-index: 11111111;
+    left: 113px;
+    top: 114px;"
+>
+  <span class="ml-1"><mat-icon>cancel</mat-icon></span>
+</div>
+<div
+  *ngIf="isAuthenticated()"
+  class=" left-nav mobile-device "
+  (mouseenter)="actionOpenNav()"
+>
+  <a class="item d-flex my-4 ml-1 cursor-pointer bold ">
+    <span><mat-icon>menu</mat-icon></span>
+  </a>
+  <a
+    [routerLinkActive]="'active-link'"
+    routerLink="intro/page"
+    class="item d-flex my-4 ml-1 cursor-pointer bold"
+  >
+    <span><mat-icon>home</mat-icon></span
+    ><span class="ml-1">Introduction</span>
+  </a>
+  <a
+    [routerLinkActive]="'active-link'"
+    *ngIf="isSelectClient()"
+    routerLink="applications/list"
+    class="item d-flex my-4 ml-1 cursor-pointer bold"
+  >
+    <span href=""><mat-icon>apps</mat-icon> </span
+    ><span class="ml-1">Application</span>
+  </a>
+  <a
+    [routerLinkActive]="'active-link'"
+    routerLink="client/list"
+    class="item d-flex my-4 ml-1 cursor-pointer bold"
+  >
+    <span href=""><mat-icon>stars</mat-icon> </span
+    ><span class="ml-1">Client</span>
+  </a>
+  <a
+    [routerLinkActive]="'active-link'"
+    *ngIf="isSelectClient()"
+    routerLink="role/list"
+    class="item d-flex my-4 ml-1 cursor-pointer bold"
+  >
+    <span href=""><mat-icon>https</mat-icon> </span
+    ><span class="ml-1">Role</span>
+  </a>
+  <a
+    [routerLinkActive]="'active-link'"
+    *ngIf="isSelectClient()"
+    routerLink="user/list"
+    class="item d-flex my-4 ml-1 cursor-pointer bold"
+  >
+    <span href=""><mat-icon>assignment_ind</mat-icon> </span
+    ><span class="ml-1">User</span>
+  </a>
+  <a
+    [routerLinkActive]="'active-link'"
+    *ngIf="isSelectClient()"
+    routerLink="tenant-api/list"
+    class="item d-flex my-4 ml-1 cursor-pointer bold"
+  >
+    <span href=""><mat-icon>domain</mat-icon> </span
+    ><span class="ml-1">Tenant Api</span>
+  </a>
+  <a
+    [routerLinkActive]="'active-link'"
+    *ngIf="isSelectClient()"
+    routerLink="applications/list"
+    class="item d-flex my-4 ml-1 cursor-pointer bold"
+  >
+    <span href=""><mat-icon>settings_applications</mat-icon> </span
+    ><span class="ml-1">Settings</span>
+  </a>
+</div>

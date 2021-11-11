@@ -3,14 +3,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { extract } from '@app/core';
 import { ListComponent } from './list/list.component';
 import { UserCreateComponent } from './user-create/user-create.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 const routes: Routes = [
   // Module is lazy loaded, see app-routing.module.ts
-  // {
-  //   path: 'detail',
-  //   component: ClientDetailComponent,
-  //   data: { title: extract('Client Detail') }
-  // },
+  {
+    path: 'detail/:id',
+    component: UserDetailComponent,
+    data: { title: extract('Client Detail') }
+  },
   {
     path: 'create',
     component: UserCreateComponent,

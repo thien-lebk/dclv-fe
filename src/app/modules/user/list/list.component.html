@@ -1,74 +1,110 @@
-<div class="container my-4">
-  <div class="header mb-4">
-    <div class="d-flex justify-content-between">
-      <h4 class="text-title-small bold text-uppercase">User</h4>
+<div class="wrap-content">
+  <div class="container my-4">
+    <div class="header mb-4">
+      <div class="d-flex justify-content-between">
+        <h4 class="text-title-small bold text-uppercase">User</h4>
 
-      <a
-        type="button"
-        class="btn btn-primary text-large"
-        [routerLink]="['../', 'create']"
-      >
-        Create new
-      </a>
+        <a
+          type="button"
+          class="btn btn-primary text-large"
+          [routerLink]="['../', 'create']"
+        >
+          Create new
+        </a>
+      </div>
+      <h5 class="text-medium my-3">
+        An easy to use UI to help administrators manage user identities
+        including password resets, creating and provisioning, blocking and
+        deleting users.
+      </h5>
     </div>
-    <h5 class="text-medium my-3">
-      An easy to use UI to help administrators manage user identities including
-      password resets, creating and provisioning, blocking and deleting users.
-    </h5>
+    <div class="d-flex justify-content-sm-between mb-2">
+      <div class="form-group d-flex">
+        <!--      <label for='exampleInputEmailBase' class='form-label mb-0'>Search</label>-->
+        <input
+          type="text"
+          class="form-control mr-1"
+          id="exampleInputEmailBase"
+          aria-describedby="emailHelp"
+          placeholder="Search for users"
+          [(ngModel)]="paramSearch"
+        />
+        <button (click)="onChangeSearch()" class=" btn btn-info">Search</button>
+      </div>
+    </div>
+    <div style="overflow-x:auto;">
+      <table class="table">
+        <thead>
+          <tr class="text-dark cursor-pointer ">
+            <th scope="col" class="inline" (click)="onClickSort('email')">
+              Email <mat-icon *ngIf="currSortValue === 'email'">sort</mat-icon>
+            </th>
+            <th scope="col" class="inline" (click)="onClickSort('name')">
+              Name <mat-icon *ngIf="currSortValue === 'name'">sort</mat-icon>
+            </th>
+            <th scope="col" class="inline" (click)="onClickSort('phone')">
+              Phone <mat-icon *ngIf="currSortValue === 'phone'">sort</mat-icon>
+            </th>
+            <th
+              scope="col"
+              class="text-center inline"
+              (click)="onClickSort('is_active')"
+            >
+              Status
+              <mat-icon *ngIf="currSortValue === 'is_active'">sort</mat-icon>
+            </th>
+            <th
+              scope="col"
+              class="text-center inline"
+              (click)="onClickSort('last_login')"
+              style="min-width: 150px;"
+            >
+              Latest Login
+              <mat-icon *ngIf="currSortValue === 'last_login'">sort</mat-icon>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <!--    {{item.is_active}}-->
+        <tbody>
+          <tr class="text-dark" *ngFor="let item of listItem">
+            <td>{{ item.email }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.phone }}</td>
+            <td *ngIf="item.is_active" class="text-center">
+              <mat-icon [ngStyle]="{ color: 'green' }">{{
+                item.is_active == true ? 'done' : 'person_off'
+              }}</mat-icon>
+            </td>
+            <td
+              *ngIf="!item.is_active"
+              class="text-center"
+              [ngStyle]="{ color: 'red' }"
+            >
+              <mat-icon>block</mat-icon>
+            </td>
+            <td class="text-center" *ngIf="!item.last_login">-</td>
+            <td class="text-center" *ngIf="item.last_login">
+              {{ item.last_login | date: 'dd/MM/yyyy' }}
+            </td>
+            <td>
+              <!--        <dc-setting-role></dc-setting-role>-->
+              <a
+                [routerLink]="['../', 'detail', item.id]"
+                class="text-primary bold"
+                >Edit</a
+              >
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <mat-paginator
+      [length]="this.totalItem"
+      (page)="onChangePaging($event)"
+      [pageSizeOptions]="[10, 30, 50, 100]"
+      aria-label="Select page"
+    >
+    </mat-paginator>
   </div>
-  <div class="d-flex justify-content-sm-between">
-    <div class="form-group mb-0">
-      <!--      <label for='exampleInputEmailBase' class='form-label mb-0'>Search</label>-->
-      <input
-        type="text"
-        class="form-control"
-        id="exampleInputEmailBase"
-        aria-describedby="emailHelp"
-        placeholder="Search for users"
-      />
-    </div>
-    <div class="form-group d-flex">
-      <select
-        class="form-select valid"
-        id="exampleFormControlSelectMultipleBase"
-        aria-invalid="false"
-      >
-        <option>Email</option>
-        <option>Phone</option>
-      </select>
-    </div>
-    <!--    <mat-form-field appearance='fill' style='width: 137px;'>-->
-    <!--      <mat-label>Search value</mat-label>-->
-    <!--      <mat-select>-->
-    <!--        <mat-option value='option1'>Email1</mat-option>-->
-    <!--        <mat-option value='option2'>Phone</mat-option>-->
-    <!--      </mat-select>-->
-    <!--    </mat-form-field>-->
-  </div>
-  <table class="table">
-    <thead>
-      <tr class="text-dark">
-        <th scope="col">Email</th>
-        <th scope="col">Phone</th>
-        <!--      <th scope='col'>Connection</th>-->
-        <th scope="col">Latest Login</th>
-
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="text-dark" *ngFor="let item of listItem">
-        <td>{{ item.email }}</td>
-        <td>{{ item.phone }}</td>
-        <!--      <td>{{item.is_active}}</td>-->
-        <td>{{ item.last_login | date: 'dd/MM/yyyy' }}</td>
-        <td>
-          <!--        <dc-setting-role></dc-setting-role>-->
-          <a [routerLink]="['../', 'detail', item.id]" class="text-primary bold"
-            >Edit</a
-          >
-        </td>
-      </tr>
-    </tbody>
-  </table>
 </div>

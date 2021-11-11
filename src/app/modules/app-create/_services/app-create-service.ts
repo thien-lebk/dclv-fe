@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { MainSource } from '../../../core/authentication/_source';
 import { AppcreateDto } from '../_modal/app-create-dto';
+import { PaginationDto } from '@app/shared/dto/pagination-dto';
+import { convertObjectToParamHttpRequest } from '@app/shared/utilis/common-function';
 
 @Injectable({
   providedIn: 'root'
@@ -24,11 +26,14 @@ export class AppCreateService {
     };
     return this.http.post<any>(url, body, httpOptions);
   }
-  getListApp(urlData: string): Observable<any> {
+  getListApp(urlData: string, getParam?: PaginationDto): Observable<any> {
     const token = localStorage.getItem('access');
+    const params = convertObjectToParamHttpRequest(getParam);
+    console.log(params);
     const url =
       'http://www.' + urlData + '.' + `${MainSource.domain}/api/applications/`;
     const httpOptions = {
+      params,
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + token

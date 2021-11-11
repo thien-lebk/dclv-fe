@@ -140,6 +140,28 @@ const routes: Routes = [
     loadChildren: () =>
       import('./modules/user/user.module').then(m => m.UserModule)
   },
+  {
+    path: 'profile',
+    canActivate: [AuthenticationGuard],
+    loadChildren: () =>
+      import('./modules/profile/profile.module').then(m => m.ProfileModule)
+  },
+  {
+    path: 'intro',
+    canActivate: [AuthenticationGuard],
+    loadChildren: () =>
+      import('./modules/intro/intro-routing.module').then(
+        m => m.IntroRoutingModule
+      )
+  },
+  {
+    path: 'tenant-api',
+    canActivate: [AuthenticationGuard],
+    loadChildren: () =>
+      import('./modules/tenant-api/tenant-api.module').then(
+        m => m.TenantApiModule
+      )
+  },
   // Fallback when no prior route is matched
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

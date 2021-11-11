@@ -6,6 +6,9 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { AuthenticationService, CredentialsService } from '@app/core';
 import { Router } from '@angular/router';
+import { MenuClientDto } from '@app/shared/components/menu-client/menu-client.dto';
+import { ProfilleDto } from '@app/modules/profile/_dto/profille.dto';
+import { ProfileService } from '@app/modules/profile/_services/profile.service';
 
 @Component({
   selector: 'dc-navbar-default',
@@ -25,19 +28,31 @@ export class NavbarDefaultComponent implements OnInit {
   signInAlt = faSignInAlt;
   userPlus = faUserPlus;
   singOutAlt = faSignOutAlt;
-  // isAuthenticated = false;
-  constructor(
-    public cre$: CredentialsService,
-    public auth$: AuthenticationService,
-    public router: Router
-  ) {}
   client: string;
+  // isAuthenticated = false;
+  currClient: MenuClientDto = new MenuClientDto();
+  profileUser: ProfilleDto;
+
+  constructor(
+    private cre$: CredentialsService,
+    private auth$: AuthenticationService,
+    private router: Router,
+    private profile$: ProfileService
+  ) {}
+
   ngOnInit() {
     this.client = localStorage.getItem('client');
+    this.currClient.name = this.client;
+    this.currClient.domains = [{ domain: this.client + '.kietteik.xyz' }];
+    this.profile$.getDetailUser().subscribe(res => {
+      this.profileUser = res;
+    });
   }
+
   isAuthenticated(): boolean {
     return this.cre$.isAuthenticated();
   }
+
   isSelectClient(): boolean {
     const token = localStorage.getItem('client');
     if (!token) {
@@ -45,13 +60,13 @@ export class NavbarDefaultComponent implements OnInit {
     }
     return true;
   }
+
   isRightPositioned() {
     return this.position === 'right';
   }
 
   signOut() {
     localStorage.clear();
-    // this.router.navigateByUrl('auth/login')
-    window.location.reload();
+    this.router.navigateByUrl('home');
   }
 }

@@ -1,9 +1,11 @@
 <h1 class="text-darker bold">Login</h1>
-<p class="text-secondary mt-0 mb-4 mb-md-6">
+<p class="text-secondary mt-0 mb-3 mb-md-5">
   Don't have an account yet?
   <a [routerLink]="['../register']" class="text-primary bold">Create it here</a>
 </p>
-
+<p class="text-danger text-small" *ngIf="errorLogin">
+  Username or password is not correct
+</p>
 <form
   [formGroup]="profileForm"
   class="cozy"

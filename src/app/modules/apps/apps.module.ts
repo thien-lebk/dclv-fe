@@ -19,6 +19,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSelectModule } from '@angular/material/select';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [AppListComponent, AppsDetailComponent],
@@ -40,7 +41,8 @@ import { MatSelectModule } from '@angular/material/select';
     MatIconModule,
     MatProgressBarModule,
     ReactiveFormsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatPaginatorModule
   ]
 })
 export class AppsModule {}

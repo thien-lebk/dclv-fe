@@ -9,7 +9,7 @@ export class StartupVideosComponent implements OnInit {
   posts = [
     {
       gravity: 'south',
-      title: 'Welcome to Dashcore',
+      title: 'Welcome to Ceau',
       description: 'Discover how to get started with DashCore now',
       videoId: 'EykWcFEtFqo'
     },

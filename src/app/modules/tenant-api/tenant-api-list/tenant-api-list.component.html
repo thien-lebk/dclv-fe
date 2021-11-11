@@ -1,0 +1,115 @@
+<div class="wrap-content">
+  <div class="container my-4">
+    <div class="header mb-4">
+      <div class="d-flex justify-content-between">
+        <h4 class="text-title-small bold text-uppercase">Tenant Api</h4>
+
+        <button
+          type="button"
+          class="btn btn-primary text-large"
+          (click)="toggleForm = !toggleForm"
+        >
+          Create new
+        </button>
+      </div>
+      <h5 class="text-medium my-3">
+        Create and manage Tenant Api for your applications. Tenant Api contain
+        collections of Permissions and can be assigned to Users.
+      </h5>
+      <div class="d-flex justify-content-between">
+        <div class="form-group d-flex">
+          <!--      <label for='exampleInputEmailBase' class='form-label mb-0'>Search</label>-->
+          <input
+            type="text"
+            class="form-control mr-1"
+            aria-describedby="emailHelp"
+            placeholder="Search for Tenant Api"
+            [(ngModel)]="paramSearch"
+            (keyup)="searchList($event.target.value)"
+          />
+        </div>
+        <div class="form-group d-flex">
+          <select
+            class="form-select valid"
+            id="exampleFormControlSelectMultipleBase"
+            aria-invalid="false"
+            [(ngModel)]="searchType"
+            (change)="searchList('')"
+          >
+            <option [ngValue]="'name'">Name</option>
+            <option [ngValue]="'url'">Url</option>
+            <option [ngValue]="'type'">Type</option>
+          </select>
+        </div>
+      </div>
+      <div *ngIf="toggleForm" class="py-5">
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label
+              for="exampleInputEmailBase"
+              class="form-label mb-0 bold text-medium"
+              >Name <span class="text-danger">*</span></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="exampleInputEmailBase"
+              aria-describedby="emailHelp"
+              placeholder="Enter name"
+              formControlName="name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="" class="form-label mb-0 bold text-medium"
+              >Url <span class="text-danger">*</span></label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id=""
+              aria-describedby="emailHelp"
+              placeholder="Enter name"
+              formControlName="url"
+            />
+          </div>
+          <div class="form-group">
+            <label for="" class="form-label mb-0 bold text-medium"
+              >Type <span class="text-danger">*</span></label
+            >
+            <select class="custom-select" formControlName="type">
+              <option value="" disabled>Choose your Type</option>
+              <option [ngValue]="'System'">{{ 'System' }}</option>
+              <option [ngValue]="'User'">{{ 'User' }}</option>
+            </select>
+          </div>
+          <button class="btn btn-secondary text-medium">Submit</button>
+        </form>
+      </div>
+    </div>
+    <table class="table text-medium">
+      <thead>
+        <tr class="text-dark">
+          <th scope="col">Name</th>
+          <th scope="col">Url</th>
+          <th scope="col">Type</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="text-dark" *ngFor="let item of listItem">
+          <td>{{ item.name }}</td>
+          <td>{{ item.url }}</td>
+          <td>{{ item.type }}</td>
+          <td>
+            <!--        <dc-setting-role></dc-setting-role>-->
+            <a
+              [routerLink]="['../', 'detail', item.id]"
+              class="text-primary bold"
+              >Edit</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { MainSource } from '../../../core/authentication/_source';
+import { convertObjectToParamHttpRequest } from '@app/shared/utilis/common-function';
+import { PaginationDto } from '@app/shared/dto/pagination-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -62,8 +64,10 @@ export class RoleService {
     };
     return this.http.delete<any>(url, httpOptions);
   }
-  getListRole(urlData: string): Observable<any> {
+  getListRole(urlData: string, getParam?: PaginationDto): Observable<any> {
     const token = localStorage.getItem('access');
+    const params = convertObjectToParamHttpRequest(getParam);
+
     const url =
       'http://www.' + urlData + '.' + `${MainSource.domain}/api/roles/`;
     const httpOptions = {

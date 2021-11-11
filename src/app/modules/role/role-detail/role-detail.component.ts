@@ -50,10 +50,6 @@ export class RoleDetailComponent implements OnInit {
       error => {
         this.loadingService.stopLoading();
         this.alert$.error(error.error.detail);
-        console.log(123);
-        console.log(error.error.detail);
-        // this.waring = error.error;
-        // console.log(this.waring);
       }
     );
   }

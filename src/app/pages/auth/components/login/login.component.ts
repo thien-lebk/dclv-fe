@@ -20,6 +20,7 @@ export class LoginComponent implements OnInit {
     lock: faLock,
     user: faUser
   };
+  errorLogin = false;
   profileForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl('')
@@ -43,15 +44,15 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('refresh', ele.refresh);
         localStorage.setItem('access', ele.access);
         this.loading$.stopLoading();
-        this.router.navigateByUrl('/');
+        this.router.onSameUrlNavigation = 'reload';
+        this.router.navigateByUrl('/client/list').then(() => {
+          window.location.reload();
+        });
+        // window.location.reload();
       },
       error => {
-        // console.log(error.error);
-        // this.loading$.stopLoading();
-        // tslint:disable-next-line:forin
-        // for (const property in error.error) {
-        //   this.alert$.error( property + ' ' +  error.error[property][0]);
-        // }
+        this.loading$.stopLoading();
+        this.errorLogin = true;
       }
     );
   }

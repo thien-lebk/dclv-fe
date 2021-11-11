@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { MainSource } from '../../../core/authentication/_source';
+import { GetParamListUser } from '@app/modules/user/_dto/get-list-user-dto';
+import { convertObjectToParamHttpRequest } from '@app/shared/utilis/common-function';
+import { UpdateUserDetailDto } from '@app/modules/user/_dto/update-user-detail-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +13,7 @@ import { MainSource } from '../../../core/authentication/_source';
 // @ts-ignore
 export class UserService {
   constructor(private http: HttpClient, public jwtHelper: JwtHelperService) {}
+
   createUser(data: any, urlData: string): Observable<any> {
     const token = localStorage.getItem('access');
     const url =
@@ -23,11 +27,32 @@ export class UserService {
     };
     return this.http.post<any>(url, body, httpOptions);
   }
-  getListApp(urlData: string): Observable<any> {
+
+  updateUser(
+    data: UpdateUserDetailDto,
+    urlData: string,
+    id: string
+  ): Observable<any> {
     const token = localStorage.getItem('access');
+    const url =
+      'http://www.' + urlData + '.' + `${MainSource.domain}/api/users/${id}/`;
+    const body = JSON.stringify(data);
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + token
+      })
+    };
+    return this.http.patch<any>(url, body, httpOptions);
+  }
+
+  getListUser(urlData: string, getParam: GetParamListUser): Observable<any> {
+    const token = localStorage.getItem('access');
+    const params = convertObjectToParamHttpRequest(getParam);
     const url =
       'http://www.' + urlData + '.' + `${MainSource.domain}/api/users/`;
     const httpOptions = {
+      params,
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         Authorization: 'Bearer ' + token
@@ -35,7 +60,7 @@ export class UserService {
     };
     return this.http.get<any>(url, httpOptions);
   }
-  getDetailApp(urlData: string): Observable<any> {
+  getDetailUser(urlData: string): Observable<any> {
     const token = localStorage.getItem('access');
     const urlSrc = localStorage.getItem('client');
 
@@ -43,7 +68,7 @@ export class UserService {
       'http://www.' +
       urlSrc +
       '.' +
-      `${MainSource.domain}/api/applications/` +
+      `${MainSource.domain}/api/users/` +
       urlData +
       '/';
     const httpOptions = {

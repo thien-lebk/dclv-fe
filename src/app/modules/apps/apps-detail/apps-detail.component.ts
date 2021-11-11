@@ -56,6 +56,7 @@ export class AppsDetailComponent implements OnInit {
     id: new FormControl(''),
     domain: new FormControl('')
   });
+  appDetail: GetAppDetailDto = new GetAppDetailDto();
   constructor(
     private route: ActivatedRoute,
     private app$: ApplicationService,
@@ -63,12 +64,11 @@ export class AppsDetailComponent implements OnInit {
     private router: Router,
     private loading$: LoadingService
   ) {}
-  appDetail: GetAppDetailDto = new GetAppDetailDto();
 
   ngOnInit(): void {
     this.loading$.startLoading();
     this.route.params.subscribe(params => {
-      this.app$.getDetailApp(params['id']).subscribe(res => {
+      this.app$.getDetailApp(params.id).subscribe(res => {
         this.appDetail = res;
         const urlSrc = localStorage.getItem('client');
         this.appDetail.domain =
@@ -80,11 +80,13 @@ export class AppsDetailComponent implements OnInit {
     });
   }
   onSubmit(): void {
-    let updateAppDto: UpdateAppDetailDto = this.profileForm.value;
+    this.loading$.startLoading();
+    const updateAppDto: UpdateAppDetailDto = this.profileForm.value;
+    updateAppDto.algorithm = AppType.RS256;
     this.app$
       .updateDetailApp(this.appDetail.id, updateAppDto)
       .subscribe(res => {
-        console.log(res);
+        this.loading$.stopLoading();
         this.alert$.success('Update success');
       });
   }

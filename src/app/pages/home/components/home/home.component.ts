@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CredentialsService } from '@app/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'dc-home',
@@ -6,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit() {}
+  constructor(private cre$: CredentialsService, private router: Router) {}
+  isAuthenticated(): boolean {
+    return this.cre$.isAuthenticated();
+  }
+  ngOnInit() {
+    if (this.cre$.isAuthenticated()) {
+      this.router.navigateByUrl('client/list');
+    }
+  }
 }

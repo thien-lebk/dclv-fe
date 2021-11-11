@@ -7,10 +7,25 @@ import { RouterModule } from '@angular/router';
 import { ShellComponent } from './components/shell/shell.component';
 import { NavbarDefaultComponent } from './components/navbar/navbar-default/navbar-default.component';
 import { NavbarShellComponent } from './components/navbar/navbar-shell/navbar-shell.component';
+import { NavbarLeftNavComponent } from './components/navbar/navbar-left-nav/navbar-left-nav.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
-  imports: [SharedModule, NgbModule, TranslateModule, RouterModule],
-  declarations: [ShellComponent, NavbarDefaultComponent, NavbarShellComponent],
-  exports: [NavbarDefaultComponent]
+  imports: [
+    SharedModule,
+    NgbModule,
+    TranslateModule,
+    RouterModule,
+    MatIconModule,
+    MatSidenavModule
+  ],
+  declarations: [
+    ShellComponent,
+    NavbarDefaultComponent,
+    NavbarShellComponent,
+    NavbarLeftNavComponent
+  ],
+  exports: [NavbarDefaultComponent, NavbarLeftNavComponent]
 })
 export class ShellModule {}

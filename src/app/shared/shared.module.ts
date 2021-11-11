@@ -71,6 +71,9 @@ import { MenuClientComponent } from './components/menu-client/menu-client.compon
 import { RouterModule } from '@angular/router';
 import { SettingMenuComponent } from './components/setting-menu/setting-menu.component';
 import { SettingRoleComponent } from './setting-role/setting-role.component';
+import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MatIconModule } from '@angular/material/icon';
 
 // Select some icons (use an object, not an array)
 const icons = {
@@ -136,7 +139,9 @@ const icons = {
     ClipboardModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
-    RouterModule
+    RouterModule,
+    NgbModule,
+    MatIconModule
   ],
   declarations: [
     LoaderComponent,
@@ -146,7 +151,8 @@ const icons = {
     CopyComponent,
     MenuClientComponent,
     SettingMenuComponent,
-    SettingRoleComponent
+    SettingRoleComponent,
+    DropdownComponent
   ],
   exports: [
     LoaderComponent,
@@ -159,7 +165,8 @@ const icons = {
     FontAwesomeModule,
     CopyComponent,
     MenuClientComponent,
-    SettingRoleComponent
+    SettingRoleComponent,
+    DropdownComponent
   ]
 })
 export class SharedModule {}

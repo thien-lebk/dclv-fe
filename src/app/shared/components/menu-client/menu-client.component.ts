@@ -4,6 +4,7 @@ import { AppCreateService } from '@app/modules/app-create/_services/app-create-s
 import { Client } from '@app/modules/client/_modal/client-modal';
 import { ClientService } from '@app/modules/client/_services/client-service';
 import { LoadingService } from '@app/shared/loader/_services/loading-services';
+import { MenuClientDto } from '@app/shared/components/menu-client/menu-client.dto';
 
 @Component({
   selector: 'dc-menu-client',
@@ -12,7 +13,7 @@ import { LoadingService } from '@app/shared/loader/_services/loading-services';
 })
 export class MenuClientComponent implements OnInit {
   @Input() dynamic = false;
-  @Input() currItem;
+  @Input() currItem: MenuClientDto;
 
   listItem: AppcreateDto[] = [];
   curList = [];
@@ -45,22 +46,22 @@ export class MenuClientComponent implements OnInit {
     window.location.reload();
   }
   ngOnInit(): void {
-    if (!this.dynamic) {
-      this.currItem = localStorage.getItem('client');
-      this.loadingService.startLoading();
-      this.app$.getListApp(this.currItem).subscribe(data => {
-        this.listItem = data.results;
-        this.loadingService.stopLoading();
-      });
-      this.isLoadingClient = true;
-      this.client$.get().subscribe(data => {
-        this.listClientItem = data.results;
-        this.curList = data.results;
-        this.currItem = this.listClientItem.find(ele => {
-          return ele.name === this.currItem;
-        });
-        this.isLoadingClient = false;
-      });
-    }
+    // if (!this.dynamic) {
+    //   this.currItem = localStorage.getItem('client');
+    //   this.loadingService.startLoading();
+    //   this.app$.getListApp(this.currItem).subscribe(data => {
+    //     this.listItem = data.results;
+    //     this.loadingService.stopLoading();
+    //   });
+    //   this.isLoadingClient = true;
+    //   this.client$.get().subscribe(data => {
+    //     this.listClientItem = data.results;
+    //     this.curList = data.results;
+    //     this.currItem = this.listClientItem.find(ele => {
+    //       return ele.name === this.currItem;
+    //     });
+    //     this.isLoadingClient = false;
+    //   });
+    // }
   }
 }

@@ -4,7 +4,7 @@ import { RoleListComponent } from './role-list/role-list.component';
 import { RoleDetailComponent } from './role-detail/role-detail.component';
 import { RoleRoutingModule } from './role-routing.module';
 import { RoleCreateComponent } from './role-create/role-create.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import {
   FontAwesomeModule,
@@ -22,7 +22,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatIconModule,
     FontAwesomeModule,
     SharedModule,
-    MatTabsModule
+    MatTabsModule,
+    FormsModule
   ]
 })
 export class RoleModule {}

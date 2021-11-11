@@ -1,0 +1,21 @@
+.hide-in-pc {
+  display: none;
+  @media screen and (max-width: 767px) {
+    display: initial;
+  }
+}
+.hide-in-mobile {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
+.dropdown-toggle::after {
+  display: none;
+}
+.dropdown-profile {
+  left: -100px !important;
+  width: 220px;
+}
+.dropdown-profile-border {
+  border-top: 1px solid #e3e4e6;
+}

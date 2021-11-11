@@ -26,3 +26,16 @@
 .hover-color-secondary:hover {
   color: var(--secondary) !important;
 }
+.wrap-content {
+  margin-left: 150px;
+  @media screen and(max-width: 767px) {
+    margin-left: 0;
+  }
+}
+.min-vh-100 {
+  min-height: calc(100vh - 90px) !important;
+}
+
+.vh-100 {
+  height: calc(100vh - 90px) !important;
+}

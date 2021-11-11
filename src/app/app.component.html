@@ -2,8 +2,16 @@
   [useOnlyDarkLogo]="true"
   [position]="'right'"
 ></dc-navbar-default>
-<main class="position-relative overflow-hidden" style="    margin-top: 90px;">
-  <dc-alert-basic></dc-alert-basic>
-  <app-loader [isLoadingProgress]="false" [message]="'ac'"></app-loader>
-  <router-outlet></router-outlet>
-</main>
+<app-loader [isLoadingProgress]="false" [message]="'ac'"></app-loader>
+
+<div style="max-width: 1440px; margin: auto">
+  <dc-navbar-left-nav></dc-navbar-left-nav>
+
+  <main
+    class="position-relative overflow-hidden"
+    style="margin-top: 90px; min-height: calc(100vh - 90px)"
+  >
+    <dc-alert-basic></dc-alert-basic>
+    <router-outlet></router-outlet>
+  </main>
+</div>

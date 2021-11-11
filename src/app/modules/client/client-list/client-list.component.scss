@@ -1,8 +1,10 @@
 .dropdown-toggle::after {
   display: none;
 }
+
 .wrap-content {
   padding-top: 24px;
+
   .container {
     .header {
       button {
@@ -12,6 +14,7 @@
       .create-app {
         display: flex;
         justify-content: flex-end;
+
         span {
           background-color: #872cce;
           padding: 3px 25px;
@@ -20,11 +23,14 @@
         }
       }
     }
+
     .list-app {
       margin-top: 24px;
+
       .app:last-child {
         margin-bottom: 100px !important;
       }
+
       .app {
         padding: 5px 0;
         display: flex;
@@ -33,13 +39,16 @@
         text-align: center;
         padding: 10px;
         position: relative;
+
         .wrap-img {
           margin-right: 10px;
+
           img {
             width: 45px;
             height: 45px;
           }
         }
+
         .name {
           min-width: 200px;
           font-size: 14px;
@@ -47,9 +56,11 @@
           display: grid;
           justify-content: start;
           text-align: start;
+
           .app-name {
             font-weight: bold;
           }
+
           .type {
             font-size: 11px;
           }
@@ -59,12 +70,15 @@
           @media screen and(max-width: 767px) {
             display: none !important;
           }
+          width: 70%;
           display: block;
           margin-right: 50px;
+
           span {
             margin-right: 10px;
           }
         }
+
         .action-op {
           width: 30px;
           height: 30px;
