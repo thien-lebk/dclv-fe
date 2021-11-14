@@ -111,7 +111,11 @@
               <h4 class="text-title-small bold text-uppercase">User</h4>
 
               <!--            (click)="toggleForm = !toggleForm"-->
-              <button type="button" class="btn btn-primary text-large">
+              <button
+                type="button"
+                class="btn btn-primary text-large"
+                (click)="openDialog()"
+              >
                 Add
               </button>
             </div>
@@ -122,12 +126,39 @@
           <table class="table">
             <thead>
               <tr class="text-dark">
-                <th scope="col">Permission</th>
-                <th scope="col">Description</th>
-                <th scope="col">API</th>
+                <th scope="col">Email</th>
+                <th scope="col">Name</th>
+                <th scope="col">Phone</th>
+                <th scope="col text-center  ">Status</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>
+              <tr class="text-dark" *ngFor="let item of listSelectedUser">
+                <td>{{ item.email }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.phone }}</td>
+                <td *ngIf="item.is_active" class="text-center">
+                  <mat-icon [ngStyle]="{ color: 'green' }">{{
+                    item.is_active == true ? 'done' : 'person_off'
+                  }}</mat-icon>
+                </td>
+                <td
+                  *ngIf="!item.is_active"
+                  class="text-center"
+                  [ngStyle]="{ color: 'red' }"
+                >
+                  <mat-icon>block</mat-icon>
+                </td>
+                <td
+                  class="mx-auto text-center cursor-pointer text-danger"
+                  (click)="removeSelectedUser(item)"
+                >
+                  <!--        <dc-setting-role></dc-setting-role>-->
+                  Remove
+                </td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </mat-tab>

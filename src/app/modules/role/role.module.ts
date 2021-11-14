@@ -12,6 +12,7 @@ import {
 } from '@fortawesome/angular-fontawesome';
 import { SharedModule } from '../../shared';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [RoleListComponent, RoleDetailComponent, RoleCreateComponent],
@@ -23,7 +24,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     FontAwesomeModule,
     SharedModule,
     MatTabsModule,
-    FormsModule
+    FormsModule,
+    MatCheckboxModule
   ]
 })
 export class RoleModule {}

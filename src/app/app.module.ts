@@ -19,6 +19,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -41,6 +42,7 @@ export function tokenGetter() {
     CtaModule,
     FootersModule,
     AlertModule,
+    MatDialogModule,
     // must be imported as the last module as it contains the fallback route
     JwtModule.forRoot({
       config: {

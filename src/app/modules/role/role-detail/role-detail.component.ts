@@ -5,7 +5,15 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { ClientDto } from '@app/modules/client/_modal/client-modal';
 import { LoadingService } from '@app/shared/loader/_services/loading-services';
 import { AlertServices } from '@app/modules/alert/_service/alert-services';
-
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA
+} from '@angular/material/dialog';
+import { DialogRoleSelectClientComponent } from '@app/shared/dialog/dialog-role-select-client/dialog-role-select-client.component';
+import { GetUserDetailDto } from '@app/modules/user/_dto/get-user-detail-dto';
+import { DialogRoleSelectClientDto } from '@app/shared/dialog/dialog-role-select-client/.dto/dialog-role-select-client.dto';
+import { UpdateRoleDto } from '@app/modules/role/_dto/UpdateRole.dto';
 @Component({
   selector: 'dc-role-detail',
   templateUrl: './role-detail.component.html',
@@ -14,24 +22,39 @@ import { AlertServices } from '@app/modules/alert/_service/alert-services';
 export class RoleDetailComponent implements OnInit {
   profileForm = new FormGroup({
     name: new FormControl(''),
-    description: new FormControl('')
+    description: new FormControl(''),
+    id: new FormControl('')
   });
   id: string;
+  listSelectedUser: DialogRoleSelectClientDto[] = [];
   constructor(
     private route: ActivatedRoute,
     private router: Router,
     private role$: RoleService,
     private loadingService: LoadingService,
-    private alert$: AlertServices
+    private alert$: AlertServices,
+    private dialog: MatDialog
   ) {}
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogRoleSelectClientComponent, {
+      width: '100%',
+      data: this.listSelectedUser
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.listSelectedUser = result;
+    });
+  }
+
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.id = params.id;
       this.role$.getDetailRole(this.id).subscribe(
         res => {
-          console.log(this.profileForm.value);
           this.loadingService.stopLoading();
           this.profileForm.patchValue(res);
+          this.listSelectedUser = res.users;
         },
         error => {
           this.alert$.error(error.error.detail);
@@ -58,14 +81,15 @@ export class RoleDetailComponent implements OnInit {
     const clientDto: ClientDto = new ClientDto();
     clientDto.name = this.profileForm.value.name;
     clientDto.schema_name = clientDto.name;
+    const updateRoleDto = new UpdateRoleDto();
+    updateRoleDto.id = this.profileForm.value.id;
+    updateRoleDto.name = this.profileForm.value.name;
+    updateRoleDto.description = this.profileForm.value.description;
+    updateRoleDto.users = this.listSelectedUser;
     // this.waring = { rePassword: '' };
     this.loadingService.startLoading();
     this.role$
-      .updateRole(
-        this.profileForm.value,
-        localStorage.getItem('client'),
-        this.id
-      )
+      .updateRole(updateRoleDto, localStorage.getItem('client'), this.id)
       .subscribe(
         ele => {
           this.loadingService.stopLoading();
@@ -78,5 +102,11 @@ export class RoleDetailComponent implements OnInit {
           // console.log(this.waring);
         }
       );
+  }
+
+  removeSelectedUser(item: DialogRoleSelectClientDto) {
+    this.listSelectedUser = this.listSelectedUser.filter(
+      ele => ele.id !== item.id
+    );
   }
 }
