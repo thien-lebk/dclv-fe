@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="justify-content-between d-flex">
+    <h4>Select Permisson</h4>
+    <button class="btn btn-outline-danger" [mat-dialog-close]="onCloseDialog()">
+      Close
+    </button>
+  </div>
+  <mat-form-field appearance="fill">
+    <mat-label>Permission</mat-label>
+    <mat-select [(ngModel)]="selectedPermission" name="permission">
+      <mat-option *ngFor="let permission of permission" [value]="permission">
+        {{ permission.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

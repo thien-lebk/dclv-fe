@@ -79,7 +79,11 @@
           <div class="header mb-4">
             <div class="d-flex justify-content-between">
               <h4 class="text-title-small bold text-uppercase">Permission</h4>
-              <button type="button" class="btn btn-primary text-large">
+              <button
+                type="button"
+                class="btn btn-primary text-large"
+                (click)="openDialogPermission()"
+              >
                 Add
               </button>
             </div>
@@ -93,12 +97,21 @@
             <thead>
               <tr class="text-dark">
                 <th scope="col">Permission</th>
-                <th scope="col">Description</th>
+                <th scope="col">Type</th>
                 <th scope="col">API</th>
               </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>
+              <tr class="text-dark" *ngFor="let item of listSelectePermission">
+                <td>{{ item.name }}</td>
+                <td>{{ item.type }}</td>
+                <td>{{ item.url }}</td>
+              </tr>
+            </tbody>
           </table>
+          <div>
+            <button class="btn btn-secondary" (click)="onSubmit()">Save</button>
+          </div>
         </div>
       </mat-tab>
       <mat-tab>
@@ -109,8 +122,6 @@
           <div class="header mb-4">
             <div class="d-flex justify-content-between">
               <h4 class="text-title-small bold text-uppercase">User</h4>
-
-              <!--            (click)="toggleForm = !toggleForm"-->
               <button
                 type="button"
                 class="btn btn-primary text-large"
@@ -160,6 +171,9 @@
               </tr>
             </tbody>
           </table>
+          <div>
+            <button class="btn btn-secondary" (click)="onSubmit()">Save</button>
+          </div>
         </div>
       </mat-tab>
     </mat-tab-group>

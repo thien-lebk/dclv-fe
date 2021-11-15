@@ -79,6 +79,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule } from '@angular/forms';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
+import { DialogRoleSelectPermissionComponent } from './dialog/dialog-role-select-permission/dialog-role-select-permission.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 // Select some icons (use an object, not an array)
 const icons = {
@@ -150,7 +153,9 @@ const icons = {
     MatPaginatorModule,
     FormsModule,
     MatCheckboxModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
   declarations: [
     LoaderComponent,
@@ -162,7 +167,8 @@ const icons = {
     SettingMenuComponent,
     SettingRoleComponent,
     DropdownComponent,
-    DialogRoleSelectClientComponent
+    DialogRoleSelectClientComponent,
+    DialogRoleSelectPermissionComponent
   ],
   exports: [
     LoaderComponent,

@@ -14,6 +14,8 @@ import { DialogRoleSelectClientComponent } from '@app/shared/dialog/dialog-role-
 import { GetUserDetailDto } from '@app/modules/user/_dto/get-user-detail-dto';
 import { DialogRoleSelectClientDto } from '@app/shared/dialog/dialog-role-select-client/.dto/dialog-role-select-client.dto';
 import { UpdateRoleDto } from '@app/modules/role/_dto/UpdateRole.dto';
+import { DialogRoleSelectPermissionComponent } from '@app/shared/dialog/dialog-role-select-permission/dialog-role-select-permission.component';
+import { DialogRoleSelectPermissionDto } from '@app/shared/dialog/dialog-role-select-permission/_dto/dialog-role-select-permission.dto';
 @Component({
   selector: 'dc-role-detail',
   templateUrl: './role-detail.component.html',
@@ -27,6 +29,7 @@ export class RoleDetailComponent implements OnInit {
   });
   id: string;
   listSelectedUser: DialogRoleSelectClientDto[] = [];
+  listSelectePermission: DialogRoleSelectPermissionDto[] = [];
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -42,11 +45,19 @@ export class RoleDetailComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       this.listSelectedUser = result;
     });
   }
+  openDialogPermission(): void {
+    const dialogRef = this.dialog.open(DialogRoleSelectPermissionComponent, {
+      width: '100%',
+      data: this.listSelectedUser
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      this.listSelectePermission = result;
+    });
+  }
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.id = params.id;
@@ -55,6 +66,7 @@ export class RoleDetailComponent implements OnInit {
           this.loadingService.stopLoading();
           this.profileForm.patchValue(res);
           this.listSelectedUser = res.users;
+          this.listSelectePermission = res.permissions;
         },
         error => {
           this.alert$.error(error.error.detail);
@@ -82,10 +94,19 @@ export class RoleDetailComponent implements OnInit {
     clientDto.name = this.profileForm.value.name;
     clientDto.schema_name = clientDto.name;
     const updateRoleDto = new UpdateRoleDto();
+    const users = [];
+    this.listSelectedUser.forEach(ele => {
+      users.push(ele.id);
+    });
+    const permissions = [];
+    this.listSelectePermission.forEach(ele => {
+      permissions.push(ele.id);
+    });
     updateRoleDto.id = this.profileForm.value.id;
     updateRoleDto.name = this.profileForm.value.name;
     updateRoleDto.description = this.profileForm.value.description;
-    updateRoleDto.users = this.listSelectedUser;
+    updateRoleDto.users = users;
+    updateRoleDto.permissions = permissions;
     // this.waring = { rePassword: '' };
     this.loadingService.startLoading();
     this.role$
