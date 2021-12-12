@@ -1,7 +1,11 @@
 <div class="wrap-content">
-  <div class="container">
+  <div class="container setting-list-page">
     <div class="header">
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-between pb-2 ">
+        <div>
+          <h1>Client</h1>
+        </div>
+
         <button
           type="button"
           class="btn btn-primary text-medium"
@@ -11,7 +15,8 @@
         </button>
       </div>
 
-      <div *ngIf="toggleForm" class="py-5">
+      <div *ngIf="toggleForm" class="py-5 border border-10 px-4">
+        <h2 class="py-2">Create new Client</h2>
         <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
             <label

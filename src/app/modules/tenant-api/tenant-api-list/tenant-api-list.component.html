@@ -1,7 +1,7 @@
 <div class="wrap-content">
-  <div class="container my-4">
+  <div class="container my-4 setting-list-page">
     <div class="header mb-4">
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-between pb-2 ">
         <h4 class="text-title-small bold text-uppercase">Tenant Api</h4>
 
         <button
@@ -16,33 +16,8 @@
         Create and manage Tenant Api for your applications. Tenant Api contain
         collections of Permissions and can be assigned to Users.
       </h5>
-      <div class="d-flex justify-content-between">
-        <div class="form-group d-flex">
-          <!--      <label for='exampleInputEmailBase' class='form-label mb-0'>Search</label>-->
-          <input
-            type="text"
-            class="form-control mr-1"
-            aria-describedby="emailHelp"
-            placeholder="Search for Tenant Api"
-            [(ngModel)]="paramSearch"
-            (keyup)="searchList($event.target.value)"
-          />
-        </div>
-        <div class="form-group d-flex">
-          <select
-            class="form-select valid"
-            id="exampleFormControlSelectMultipleBase"
-            aria-invalid="false"
-            [(ngModel)]="searchType"
-            (change)="searchList('')"
-          >
-            <option [ngValue]="'name'">Name</option>
-            <option [ngValue]="'url'">Url</option>
-            <option [ngValue]="'type'">Type</option>
-          </select>
-        </div>
-      </div>
-      <div *ngIf="toggleForm" class="py-5">
+      <div *ngIf="toggleForm" class="py-5 border border-10 px-4">
+        <h2>Create new Tenant Api</h2>
         <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
             <label
@@ -84,6 +59,32 @@
           </div>
           <button class="btn btn-secondary text-medium">Submit</button>
         </form>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between">
+      <div class="form-group d-flex">
+        <!--      <label for='exampleInputEmailBase' class='form-label mb-0'>Search</label>-->
+        <input
+          type="text"
+          class="form-control mr-1"
+          aria-describedby="emailHelp"
+          placeholder="Search for Tenant Api"
+          [(ngModel)]="paramSearch"
+          (keyup)="searchList($event.target.value)"
+        />
+      </div>
+      <div class="form-group d-flex">
+        <select
+          class="form-select valid"
+          id="exampleFormControlSelectMultipleBase"
+          aria-invalid="false"
+          [(ngModel)]="searchType"
+          (change)="searchList('')"
+        >
+          <option [ngValue]="'name'">Name</option>
+          <option [ngValue]="'url'">Url</option>
+          <option [ngValue]="'type'">Type</option>
+        </select>
       </div>
     </div>
     <table class="table text-medium">
