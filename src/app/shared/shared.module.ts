@@ -74,6 +74,14 @@ import { SettingRoleComponent } from './setting-role/setting-role.component';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatIconModule } from '@angular/material/icon';
+import { DialogRoleSelectClientComponent } from './dialog/dialog-role-select-client/dialog-role-select-client.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { FormsModule } from '@angular/forms';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogRoleSelectPermissionComponent } from './dialog/dialog-role-select-permission/dialog-role-select-permission.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 
 // Select some icons (use an object, not an array)
 const icons = {
@@ -141,7 +149,13 @@ const icons = {
     MatProgressSpinnerModule,
     RouterModule,
     NgbModule,
-    MatIconModule
+    MatIconModule,
+    MatPaginatorModule,
+    FormsModule,
+    MatCheckboxModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatSelectModule
   ],
   declarations: [
     LoaderComponent,
@@ -152,7 +166,9 @@ const icons = {
     MenuClientComponent,
     SettingMenuComponent,
     SettingRoleComponent,
-    DropdownComponent
+    DropdownComponent,
+    DialogRoleSelectClientComponent,
+    DialogRoleSelectPermissionComponent
   ],
   exports: [
     LoaderComponent,

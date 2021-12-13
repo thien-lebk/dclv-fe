@@ -5,3 +5,14 @@
 .vh-100 {
   height: calc(50vh) !important;
 }
+.text-center {
+  .heading-line {
+    &:after {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+table {
+  max-height: 500px;
+}
