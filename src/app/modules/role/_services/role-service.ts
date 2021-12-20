@@ -14,8 +14,7 @@ export class RoleService {
   constructor(private http: HttpClient, public jwtHelper: JwtHelperService) {}
   createRole(data: any, urlData: string): Observable<any> {
     const token = localStorage.getItem('access');
-    const url =
-      'http://www.' + urlData + '.' + `${MainSource.domain}/api/roles/`;
+    const url = 'https://' + urlData + '.' + `${MainSource.domain}/api/roles/`;
     const body = JSON.stringify(data);
     const httpOptions = {
       headers: new HttpHeaders({
@@ -27,15 +26,8 @@ export class RoleService {
   }
   updateRole(data: any, urlData: string, id: string): Observable<any> {
     const url =
-      'http://www.' +
-      urlData +
-      '.' +
-      `${MainSource.domain}/api/roles/` +
-      id +
-      '/';
+      'https://' + urlData + '.' + `${MainSource.domain}/api/roles/` + id + '/';
     const token = localStorage.getItem('access');
-    // const url =
-    //   'http://www.' + urlData + '.' + `${MainSource.domain}/api/roles/`;
     const body = JSON.stringify(data);
     const httpOptions = {
       headers: new HttpHeaders({
@@ -47,15 +39,8 @@ export class RoleService {
   }
   deleteRole(urlData: string, id: string): Observable<any> {
     const url =
-      'http://www.' +
-      urlData +
-      '.' +
-      `${MainSource.domain}/api/roles/` +
-      id +
-      '/';
+      'https://' + urlData + '.' + `${MainSource.domain}/api/roles/` + id + '/';
     const token = localStorage.getItem('access');
-    // const url =
-    //   'http://www.' + urlData + '.' + `${MainSource.domain}/api/roles/`;
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -68,8 +53,7 @@ export class RoleService {
     const token = localStorage.getItem('access');
     const params = convertObjectToParamHttpRequest(getParam);
 
-    const url =
-      'http://www.' + urlData + '.' + `${MainSource.domain}/api/roles/`;
+    const url = 'https://' + urlData + '.' + `${MainSource.domain}/api/roles/`;
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -83,12 +67,7 @@ export class RoleService {
     const urlSrc = localStorage.getItem('client');
 
     const url =
-      'http://www.' +
-      urlSrc +
-      '.' +
-      `${MainSource.domain}/api/roles/` +
-      id +
-      '/';
+      'https://' + urlSrc + '.' + `${MainSource.domain}/api/roles/` + id + '/';
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',

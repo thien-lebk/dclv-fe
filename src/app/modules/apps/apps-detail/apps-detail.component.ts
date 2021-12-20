@@ -71,8 +71,7 @@ export class AppsDetailComponent implements OnInit {
       this.app$.getDetailApp(params.id).subscribe(res => {
         this.appDetail = res;
         const urlSrc = localStorage.getItem('client');
-        this.appDetail.domain =
-          'http://www.' + urlSrc + '.' + MainSource.domain;
+        this.appDetail.domain = 'https://' + urlSrc + '.' + MainSource.domain;
         // this.profileForm.patchValue(res);
         this.profileForm.setValue(this.appDetail);
         this.loading$.stopLoading();

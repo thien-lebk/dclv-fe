@@ -47,7 +47,7 @@ export function tokenGetter() {
     JwtModule.forRoot({
       config: {
         tokenGetter,
-        allowedDomains: ['http://www.kietteik.xyz']
+        allowedDomains: ['https://www.kietteik.xyz']
         // disallowedRoutes: ['http://example.com/examplebadroute/'],
       }
     }),

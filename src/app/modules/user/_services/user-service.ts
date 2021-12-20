@@ -16,8 +16,7 @@ export class UserService {
 
   createUser(data: any, urlData: string): Observable<any> {
     const token = localStorage.getItem('access');
-    const url =
-      'http://www.' + urlData + '.' + `${MainSource.domain}/api/users/`;
+    const url = 'https://' + urlData + '.' + `${MainSource.domain}/api/users/`;
     const body = JSON.stringify(data);
     const httpOptions = {
       headers: new HttpHeaders({
@@ -35,7 +34,7 @@ export class UserService {
   ): Observable<any> {
     const token = localStorage.getItem('access');
     const url =
-      'http://www.' + urlData + '.' + `${MainSource.domain}/api/users/${id}/`;
+      'https://' + urlData + '.' + `${MainSource.domain}/api/users/${id}/`;
     const body = JSON.stringify(data);
     const httpOptions = {
       headers: new HttpHeaders({
@@ -49,8 +48,7 @@ export class UserService {
   getListUser(urlData: string, getParam: GetParamListUser): Observable<any> {
     const token = localStorage.getItem('access');
     const params = convertObjectToParamHttpRequest(getParam);
-    const url =
-      'http://www.' + urlData + '.' + `${MainSource.domain}/api/users/`;
+    const url = 'https://' + urlData + '.' + `${MainSource.domain}/api/users/`;
     const httpOptions = {
       params,
       headers: new HttpHeaders({
@@ -65,7 +63,7 @@ export class UserService {
     const urlSrc = localStorage.getItem('client');
 
     const url =
-      'http://www.' +
+      'https://' +
       urlSrc +
       '.' +
       `${MainSource.domain}/api/users/` +

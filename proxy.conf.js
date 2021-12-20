@@ -10,7 +10,7 @@ const proxyConfig = [
   {
     context: '/api',
     pathRewrite: { '^/api': '' },
-    target: 'http://www.kietteik.xyz/docs/',
+    target: 'https://www.kietteik.xyz/docs/',
     changeOrigin: true,
     secure: false
   }

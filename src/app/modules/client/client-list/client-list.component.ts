@@ -60,7 +60,7 @@ export class ClientListComponent implements OnInit {
   }
 
   goToUrl(url: string): void {
-    window.location.href = 'http://www.' + url;
+    window.location.href = 'https://www.' + url;
   }
 
   selectClient(name: string): void {

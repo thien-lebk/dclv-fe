@@ -15,7 +15,7 @@ export class TenantApiService {
   create(data: any, urlData: string): Observable<any> {
     const token = localStorage.getItem('access');
     const url =
-      'http://www.' + urlData + '.' + `${MainSource.domain}/api/tenant-apis/`;
+      'https://' + urlData + '.' + `${MainSource.domain}/api/tenant-apis/`;
     const body = JSON.stringify(data);
     const httpOptions = {
       headers: new HttpHeaders({
@@ -27,15 +27,13 @@ export class TenantApiService {
   }
   update(data: any, urlData: string, id: string): Observable<any> {
     const url =
-      'http://www.' +
+      'https://' +
       urlData +
       '.' +
       `${MainSource.domain}/api/tenant-apis/` +
       id +
       '/';
     const token = localStorage.getItem('access');
-    // const url =
-    //   'http://www.' + urlData + '.' + `${MainSource.domain}/api/roles/`;
     const body = JSON.stringify(data);
     const httpOptions = {
       headers: new HttpHeaders({
@@ -47,15 +45,13 @@ export class TenantApiService {
   }
   delete(urlData: string, id: string): Observable<any> {
     const url =
-      'http://www.' +
+      'https://' +
       urlData +
       '.' +
       `${MainSource.domain}/api/tenant-apis/` +
       id +
       '/';
     const token = localStorage.getItem('access');
-    // const url =
-    //   'http://www.' + urlData + '.' + `${MainSource.domain}/api/roles/`;
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -69,7 +65,7 @@ export class TenantApiService {
     const params = convertObjectToParamHttpRequest(getParam);
 
     const url =
-      'http://www.' + urlData + '.' + `${MainSource.domain}/api/tenant-apis/`;
+      'https://' + urlData + '.' + `${MainSource.domain}/api/tenant-apis/`;
     const httpOptions = {
       params,
       headers: new HttpHeaders({
@@ -84,7 +80,7 @@ export class TenantApiService {
     const urlSrc = localStorage.getItem('client');
 
     const url =
-      'http://www.' +
+      'https://' +
       urlSrc +
       '.' +
       `${MainSource.domain}/api/tenant-apis/` +

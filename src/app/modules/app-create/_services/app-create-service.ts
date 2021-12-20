@@ -16,7 +16,7 @@ export class AppCreateService {
   createApp(data: AppcreateDto, urlData: string): Observable<any> {
     const token = localStorage.getItem('access');
     const url =
-      'http://www.' + urlData + '.' + `${MainSource.domain}/api/applications/`;
+      'https://' + urlData + '.' + `${MainSource.domain}/api/applications/`;
     const body = JSON.stringify(data);
     const httpOptions = {
       headers: new HttpHeaders({
@@ -31,7 +31,7 @@ export class AppCreateService {
     const params = convertObjectToParamHttpRequest(getParam);
     console.log(params);
     const url =
-      'http://www.' + urlData + '.' + `${MainSource.domain}/api/applications/`;
+      'https://' + urlData + '.' + `${MainSource.domain}/api/applications/`;
     const httpOptions = {
       params,
       headers: new HttpHeaders({
@@ -46,7 +46,7 @@ export class AppCreateService {
     const urlSrc = localStorage.getItem('client');
 
     const url =
-      'http://www.' +
+      'https://' +
       urlSrc +
       '.' +
       `${MainSource.domain}/api/applications/` +

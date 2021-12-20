@@ -1,4 +1,4 @@
 export const MainSource = {
-  route: 'http://www.kietteik.xyz/api',
+  route: 'https://www.kietteik.xyz/api',
   domain: 'kietteik.xyz'
 };

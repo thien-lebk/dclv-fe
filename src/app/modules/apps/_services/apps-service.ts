@@ -16,7 +16,7 @@ export class ApplicationService {
   createApp(data: AppcreateDto, urlData: string): Observable<any> {
     const token = localStorage.getItem('access');
     const url =
-      'http://www.' + urlData + '.' + `${MainSource.domain}/api/applications/`;
+      'https://' + urlData + '.' + `${MainSource.domain}/api/applications/`;
     const body = JSON.stringify(data);
     const httpOptions = {
       headers: new HttpHeaders({
@@ -29,7 +29,7 @@ export class ApplicationService {
   getListApp(urlData: string): Observable<any> {
     const token = localStorage.getItem('access');
     const url =
-      'http://www.' + urlData + '.' + `${MainSource.domain}/api/applications/`;
+      'https://' + urlData + '.' + `${MainSource.domain}/api/applications/`;
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ export class ApplicationService {
     const urlSrc = localStorage.getItem('client');
 
     const url =
-      'http://www.' +
+      'https://' +
       urlSrc +
       '.' +
       `${MainSource.domain}/api/applications/` +
@@ -66,7 +66,7 @@ export class ApplicationService {
     const body = JSON.stringify(updateAppDetailDto);
 
     const url =
-      'http://www.' +
+      'https://' +
       urlSrc +
       '.' +
       `${MainSource.domain}/api/applications/` +
@@ -85,7 +85,7 @@ export class ApplicationService {
     const urlSrc = localStorage.getItem('client');
 
     const url =
-      'http://www.' +
+      'https://' +
       urlSrc +
       '.' +
       `${MainSource.domain}/api/applications/` +

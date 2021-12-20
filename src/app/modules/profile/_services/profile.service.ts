@@ -17,7 +17,7 @@ export class ProfileService {
 
   updateUser(data: ProfilleDto): Observable<any> {
     const token = localStorage.getItem('access');
-    const url = 'http://www.' + `${MainSource.domain}/api/users/`;
+    const url = 'https://' + `${MainSource.domain}/api/users/`;
     const body = JSON.stringify(data);
     const httpOptions = {
       headers: new HttpHeaders({
@@ -31,7 +31,7 @@ export class ProfileService {
     const token = localStorage.getItem('access');
     const urlSrc = localStorage.getItem('client');
 
-    const url = 'http://www.' + `${MainSource.domain}/api/users/me` + '/';
+    const url = 'https://' + `${MainSource.domain}/api/users/me` + '/';
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
