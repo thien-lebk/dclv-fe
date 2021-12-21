@@ -2,7 +2,7 @@
   <div class="container my-4 setting-list-page">
     <div class="header mb-4">
       <div class="d-flex justify-content-between pb-2 ">
-        <h4 class="text-title-small bold text-uppercase">Tenant Api</h4>
+        <h4 class="text-title-small bold text-uppercase">Tenant Permission</h4>
 
         <button
           type="button"
@@ -13,11 +13,12 @@
         </button>
       </div>
       <h5 class="text-medium my-3">
-        Create and manage Tenant Api for your applications. Tenant Api contain
-        collections of Permissions and can be assigned to Users.
+        Create and manage Tenant Permission for your applications. Tenant
+        Permission contain collections of Permissions and can be assigned to
+        Users.
       </h5>
       <div *ngIf="toggleForm" class="py-5 border border-10 px-4">
-        <h2>Create new Tenant Api</h2>
+        <h2>Create new Tenant Permission</h2>
         <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
           <div class="form-group">
             <label
@@ -68,7 +69,7 @@
           type="text"
           class="form-control mr-1"
           aria-describedby="emailHelp"
-          placeholder="Search for Tenant Api"
+          placeholder="Search for Tenant Permission"
           [(ngModel)]="paramSearch"
           (keyup)="searchList($event.target.value)"
         />

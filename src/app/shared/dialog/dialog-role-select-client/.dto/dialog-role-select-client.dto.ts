@@ -6,5 +6,5 @@ export class DialogRoleSelectClientDto {
   name: string;
   phone: string;
   username: string;
-  isSelected = false;
+  select = false;
 }

@@ -3,4 +3,5 @@ export class DialogRoleSelectPermissionDto {
   name: string;
   type: string;
   url: string;
+  select = false;
 }

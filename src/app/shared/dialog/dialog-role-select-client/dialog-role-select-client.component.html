@@ -1,89 +1,20 @@
-<div class="">
-  <div class="container my-4">
-    <div class="header mb-4">
-      <div class="d-flex justify-content-between">
-        <h4 class="text-title-small bold text-uppercase">User</h4>
-        <button class="btn btn-outline-danger" [matDialogClose]="closeDialog()">
-          Close
-        </button>
-      </div>
-      <h5 class="text-medium my-3">
-        Selet user for this Role.
-      </h5>
-    </div>
-    <div class="d-flex justify-content-sm-between mb-2">
-      <div class="form-group d-flex">
-        <!--      <label for='exampleInputEmailBase' class='form-label mb-0'>Search</label>-->
-        <input
-          type="text"
-          class="form-control mr-1"
-          id="exampleInputEmailBase"
-          aria-describedby="emailHelp"
-          placeholder="Search for users"
-          [(ngModel)]="paramSearch"
-        />
-        <button (click)="onChangeSearch()" class=" btn btn-info">Search</button>
-      </div>
-    </div>
-    <div style="overflow-x:auto;">
-      <table class="table">
-        <thead>
-          <tr class="text-dark cursor-pointer ">
-            <th scope="col" class="inline" (click)="onClickSort('email')">
-              Email <mat-icon *ngIf="currSortValue === 'email'">sort</mat-icon>
-            </th>
-            <th scope="col" class="inline" (click)="onClickSort('name')">
-              Name <mat-icon *ngIf="currSortValue === 'name'">sort</mat-icon>
-            </th>
-            <th scope="col" class="inline" (click)="onClickSort('phone')">
-              Phone <mat-icon *ngIf="currSortValue === 'phone'">sort</mat-icon>
-            </th>
-            <th
-              scope="col"
-              class="text-center inline"
-              (click)="onClickSort('is_active')"
-            >
-              Status
-              <mat-icon *ngIf="currSortValue === 'is_active'">sort</mat-icon>
-            </th>
-            <th class="text-center">Select</th>
-          </tr>
-        </thead>
-        <!--    {{item.is_active}}-->
-        <tbody>
-          <tr class="text-dark" *ngFor="let item of listItem">
-            <td>{{ item.email }}</td>
-            <td>{{ item.name }}</td>
-            <td>{{ item.phone }}</td>
-            <td *ngIf="item.is_active" class="text-center">
-              <mat-icon [ngStyle]="{ color: 'green' }">{{
-                item.is_active == true ? 'done' : 'person_off'
-              }}</mat-icon>
-            </td>
-            <td
-              *ngIf="!item.is_active"
-              class="text-center"
-              [ngStyle]="{ color: 'red' }"
-            >
-              <mat-icon>block</mat-icon>
-            </td>
-            <td class="mx-auto text-center">
-              <!--        <dc-setting-role></dc-setting-role>-->
-              <mat-checkbox
-                (change)="onChangeSelect(item)"
-                [(ngModel)]="item.isSelected"
-              ></mat-checkbox>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <mat-paginator
-      [length]="this.totalItem"
-      (page)="onChangePaging($event)"
-      [pageSizeOptions]="[10, 30, 50, 100]"
-      aria-label="Select page"
+<div class="container">
+  <div class="justify-content-between d-flex">
+    <h4>Select Permisson</h4>
+    <button class="btn btn-outline-danger" [mat-dialog-close]="onCloseDialog()">
+      Close
+    </button>
+  </div>
+  <div class="justify-content-center d-flex">
+    <ag-grid-angular
+      style="width: 100%; height: 500px;"
+      class="ag-theme-alpine"
+      [rowData]="rowData"
+      [columnDefs]="columnDefs"
+      [rowSelection]="'multiple'"
+      (selectionChanged)="onSelectionChanged($event)"
+      [frameworkComponents]="frameworkComponents"
     >
-    </mat-paginator>
+    </ag-grid-angular>
   </div>
 </div>

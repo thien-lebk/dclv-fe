@@ -82,6 +82,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DialogRoleSelectPermissionComponent } from './dialog/dialog-role-select-permission/dialog-role-select-permission.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { AgGridModule } from 'ag-grid-angular';
 
 // Select some icons (use an object, not an array)
 const icons = {
@@ -155,7 +156,8 @@ const icons = {
     MatCheckboxModule,
     MatDialogModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    AgGridModule
   ],
   declarations: [
     LoaderComponent,

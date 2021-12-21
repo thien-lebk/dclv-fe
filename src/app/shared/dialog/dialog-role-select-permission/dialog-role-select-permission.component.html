@@ -5,12 +5,16 @@
       Close
     </button>
   </div>
-  <mat-form-field appearance="fill">
-    <mat-label>Permission</mat-label>
-    <mat-select [(ngModel)]="selectedPermission" name="permission">
-      <mat-option *ngFor="let permission of permission" [value]="permission">
-        {{ permission.name }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+  <div class="justify-content-center d-flex">
+    <ag-grid-angular
+      style="width: 100%; height: 500px;"
+      class="ag-theme-alpine"
+      [rowData]="rowData"
+      [columnDefs]="columnDefs"
+      [rowSelection]="'multiple'"
+      (selectionChanged)="onSelectionChanged($event)"
+      [frameworkComponents]="frameworkComponents"
+    >
+    </ag-grid-angular>
+  </div>
 </div>

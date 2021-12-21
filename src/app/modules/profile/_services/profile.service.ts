@@ -31,7 +31,7 @@ export class ProfileService {
     const token = localStorage.getItem('access');
     const urlSrc = localStorage.getItem('client');
 
-    const url = 'https://' + `${MainSource.domain}/api/users/me` + '/';
+    const url = `${MainSource.route}/users/me/`;
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',

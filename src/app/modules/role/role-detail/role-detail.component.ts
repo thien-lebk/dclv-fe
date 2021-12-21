@@ -1,3 +1,4 @@
+import { TenantApiService } from '@app/modules/tenant-api/_services/tenant-api-service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { RoleService } from '@app/modules/role/_services/role-service';
@@ -36,9 +37,10 @@ export class RoleDetailComponent implements OnInit {
     private role$: RoleService,
     private loadingService: LoadingService,
     private alert$: AlertServices,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private tenantPer$: TenantApiService
   ) {}
-  openDialog(): void {
+  openDialogUser(): void {
     const dialogRef = this.dialog.open(DialogRoleSelectClientComponent, {
       width: '100%',
       data: this.listSelectedUser
@@ -51,7 +53,7 @@ export class RoleDetailComponent implements OnInit {
   openDialogPermission(): void {
     const dialogRef = this.dialog.open(DialogRoleSelectPermissionComponent, {
       width: '100%',
-      data: this.listSelectedUser
+      data: this.listSelectePermission
     });
 
     dialogRef.afterClosed().subscribe(result => {

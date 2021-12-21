@@ -37,6 +37,7 @@ export class DomainService {
   gettest(): Observable<any> {
     const token = localStorage.getItem('access');
     const url = `${MainSource.route}/users/me/`;
+
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',

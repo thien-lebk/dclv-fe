@@ -20,6 +20,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { AgGridModule } from 'ag-grid-angular';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -52,7 +53,8 @@ export function tokenGetter() {
       }
     }),
     MatButtonToggleModule,
-    FormsModule
+    FormsModule,
+    AgGridModule.withComponents([])
   ],
   declarations: [AppComponent, AppCreateComponent],
   providers: [],

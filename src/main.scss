@@ -104,3 +104,6 @@ input:-webkit-autofill:active {
   display: flex;
   justify-content: flex-start;
 }
+
+@import "ag-grid-community/dist/styles/ag-grid.css";
+@import "ag-grid-community/dist/styles/ag-theme-alpine.css";
