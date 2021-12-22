@@ -126,10 +126,12 @@ export class RoleDetailComponent implements OnInit {
         }
       );
   }
-
-  removeSelectedUser(item: DialogRoleSelectClientDto) {
-    this.listSelectedUser = this.listSelectedUser.filter(
-      ele => ele.id !== item.id
+  removeSelectedPermission(id: any) {
+    this.listSelectePermission = this.listSelectePermission.filter(
+      ele => ele.id !== id
     );
+  }
+  removeSelectedUser(id: any) {
+    this.listSelectedUser = this.listSelectedUser.filter(ele => ele.id !== id);
   }
 }

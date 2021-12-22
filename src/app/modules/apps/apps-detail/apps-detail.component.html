@@ -70,6 +70,7 @@
                   placeholder="Enter Domain"
                   formControlName="domain"
                 />
+
                 <dc-copy
                   class="position-absolute"
                   style="top: 8px; right: 6px"
@@ -287,281 +288,60 @@
                   formControlName="redirect_uris"
                 />
               </div>
-              <!-- <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
-              In some scenarios, Auth0 will need to redirect to your
-              application’s login page. This URI needs to point to a route in
-              your application that should redirect to your tenant’s /authorize
-              endpoint.
-            </div> -->
             </div>
-            <!-- <div class="form-group"> 
-            <label class="form-label mb-0 text-black bold">
-              Application Login URI</label>
-            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2"></div>
-            <div class="position-relative">
-              <input type="text" class="form-control mb-2 mt-2 pr-4" placeholder="https://myapp.com.login" />
-            </div>
-            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
-              In some scenarios, Auth0 will need to redirect to your
-              application’s login page. This URI needs to point to a route in
-              your application that should redirect to your tenant’s /authorize
-              endpoint.
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label mb-0 text-black bold">
-              Allowed Callback URLs</label>
-            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2"></div>
-            <div class="position-relative">
-              <textarea class="form-control mb-2 mt-2 pr-4"> </textarea>
-            </div>
-            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
-              After the user authenticates we will only call back to any of
-              these URLs. You can specify multiple valid URLs by
-              comma-separating them (typically to handle different environments
-              like QA or testing). Make sure to specify the protocol (https://)
-              otherwise the callback may fail in some cases. With the exception
-              of custom URI schemes for native clients, all callbacks should use
-              protocol https://. You can use Organization URL parameters in
-              these URLs.
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label mb-0 text-black bold">
-              Allowed Logout URLs</label>
-            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2"></div>
-            <div class="position-relative">
-              <textarea class="form-control mb-2 mt-2 pr-4"> </textarea>
-            </div>
-            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
-              A set of URLs that are valid to redirect to after logout from
-              Auth0. After a user logs out from Auth0 you can redirect them with
-              the returnTo query parameter. The URL that you use in returnTo
-              must be listed here. You can specify multiple valid URLs by
-              comma-separating them. You can use the star symbol as a wildcard
-              for subdomains (*.google.com). Query strings and hash information
-              are not taken into account when validating these URLs.
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label mb-0 text-black bold">
-              Allowed Web Origins
-            </label>
-            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2"></div>
-            <div class="position-relative">
-              <textarea class="form-control mb-2 mt-2 pr-4"> </textarea>
-            </div>
-            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
-              Comma-separated list of allowed origins for use with Cross-Origin
-              Authentication, Device Flow, and web message response mode.
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label mb-0 text-black bold">
-              Allowed Origins (CORS)
-            </label>
-            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2"></div>
-            <div class="position-relative">
-              <textarea class="form-control mb-2 mt-2 pr-4"> </textarea>
-            </div>
-            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
-              Allowed Origins are URLs that will be allowed to make requests
-              from JavaScript to Auth0 API (typically used with CORS). By
-              default, all your callback URLs will be allowed. This field allows
-              you to enter other origins if you need to. You can specify
-              multiple valid URLs by comma-separating them or one by line, and
-              also use wildcards at the subdomain level (e.g.:
-              https://*.contoso.com). Query strings and hash information are not
-              taken into account when validating these URLs.. You can use
-              Organization URL placeholders in these URLs.
-            </div>
-          </div> -->
           </form>
         </div>
       </div>
-      <!-- <div class="row align-items-start gap-y pt-4 mt-4 pb-4 border-bottom">
-      <div class="col-md-6 col-lg-5 text-center text-md-left">
-        <h2 class="text-dark light">ID Token</h2>
-      </div>
+      <div class="row align-items-start gap-y pt-4 mt-4 pb-4 border-bottom">
+        <div class="col-md-12 col-lg-12 text-center text-md-left">
+          <h2 class="text-dark light">Scope</h2>
+        </div>
 
-      <div class="col-md-6 col-lg-6">
-        <form
-          action=";"
-          class="cozy"
-          novalidate="novalidate"
-          style="text-align: start"
-        >
-          <div class="form-group">
-            <label class="form-label mb-0 text-black bold">
-              ID Token Expiration</label
-            >
-            <div
-              class="form-text text-secondary text-ceau-secondary mt-0 mb-2"
-            ></div>
-            <div class="position-relative">
-              <input
-                type="text"
-                class="form-control mb-2 mt-2 pr-6"
-                placeholder=""
-              />
-              <span
-                class="text-secondary text-ceau-secondary position-absolute seconds"
-                >seconds</span
+        <div class="container my-4 min-vh-100">
+          <div class="header mb-4">
+            <div class="d-flex justify-content-between">
+              <h4 class="text-title-small bold text-uppercase">Permission</h4>
+              <button
+                type="button"
+                class="btn btn-primary text-large"
+                (click)="openDialogPermission()"
               >
+                Add
+              </button>
             </div>
-            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
-              This setting allows you to set the lifetime of the
-              <code class="text-dark" data-cosmos-key="code">id_token</code> (in
-              seconds).
-            </div>
+            <h5 class="text-medium my-3">
+              Add Permissions to this Role. Users who have this Role will
+              receive all Permissions below that match the API of their login
+              request.
+            </h5>
           </div>
-        </form>
+          <table class="table text-medium">
+            <thead>
+              <tr class="text-dark">
+                <th scope="col">Name</th>
+                <th scope="col">Url</th>
+                <th scope="col">Type</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="text-dark" *ngFor="let item of listSelectePermission">
+                <td>{{ item.name }}</td>
+                <td>{{ item.url }}</td>
+                <td>{{ item.type }}</td>
+                <td>
+                  <a
+                    href="javascript:void(0)"
+                    class="text-primary bold  text-danger"
+                    (click)="removeSelectedPermission(item.id)"
+                    >Delete</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
-    <div class="row align-items-start gap-y pt-4 mt-4 pb-4 border-bottom">
-      <div class="col-md-6 col-lg-5 text-center text-md-left">
-        <h2 class="text-dark light">Refresh Token Rotation</h2>
-      </div>
-
-      <div class="col-md-6 col-lg-6">
-        <form
-          action=";"
-          class="cozy"
-          novalidate="novalidate"
-          style="text-align: start"
-        >
-          <div class="form-group">
-            <label class="form-label mb-0 text-black bold"> Rotation</label>
-            <div
-              class="form-text text-secondary text-ceau-secondary mt-0 mb-2"
-            ></div>
-            <mat-slide-toggle> </mat-slide-toggle>
-            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
-              When enabled, as a result of exchanging a refresh token, a new
-              refresh token will be issued and the existing token will be
-              invalidated. This allows for automatic detection of token reuse if
-              the token is leaked. In addition, an absolute expiration lifetime
-              must be set.
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label mb-0 text-black bold">
-              Reuse Interval
-            </label>
-            <div
-              class="form-text text-secondary text-ceau-secondary mt-0 mb-2"
-            ></div>
-            <div class="position-relative">
-              <input
-                type="text"
-                class="form-control mb-2 mt-2 pr-6"
-                placeholder=""
-              />
-              <span
-                class="text-secondary text-ceau-secondary position-absolute seconds"
-                >seconds</span
-              >
-            </div>
-            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
-              The allowable leeway time that the same
-              <code class="text-dark">refresh_token</code> can be used to
-              request an <code class="text-dark">access_token</code> without
-              triggering automatic reuse detection.
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-    <div class="row align-items-start gap-y pt-4 mt-4 pb-4 border-bottom">
-      <div class="col-md-6 col-lg-5 text-center text-md-left">
-        <h2 class="text-dark light">Refresh Token Expiration</h2>
-      </div>
-
-      <div class="col-md-6 col-lg-6">
-        <form
-          action=";"
-          class="cozy"
-          novalidate="novalidate"
-          style="text-align: start"
-        >
-          <div class="form-group">
-            <label class="form-label mb-0 text-black bold">
-              Absolute Expiration
-            </label>
-            <div
-              class="form-text text-secondary text-ceau-secondary mt-0 mb-2"
-            ></div>
-            <mat-slide-toggle> </mat-slide-toggle>
-            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
-              When enabled, a <code class="text-dark">refresh_token</code> will
-              expire based on an absolute lifetime, after which the token can no
-              longer be used. If rotation is enabled, an expiration lifetime
-              must be set.
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label mb-0 text-black bold">
-              Absolute Lifetime
-            </label>
-            <div
-              class="form-text text-secondary text-ceau-secondary mt-0 mb-2"
-            ></div>
-            <div class="position-relative">
-              <input
-                type="text"
-                class="form-control mb-2 mt-2 pr-6"
-                placeholder=""
-              />
-              <span
-                class="text-secondary text-ceau-secondary position-absolute seconds"
-                >seconds</span
-              >
-            </div>
-            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
-              Sets the absolute lifetime of a
-              <code class="text-dark">refresh_token</code> (in seconds).
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label mb-0 text-black bold">
-              Inactivity Expiration
-            </label>
-            <div
-              class="form-text text-secondary text-ceau-secondary mt-0 mb-2"
-            ></div>
-            <mat-slide-toggle> </mat-slide-toggle>
-            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
-              When enabled, a <code class="text-dark">refresh_token</code> will
-              expire based on a specified inactivity lifetime, after which the
-              token can no longer be used.
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label mb-0 text-black bold">
-              Inactivity Lifetime
-            </label>
-            <div
-              class="form-text text-secondary text-ceau-secondary mt-0 mb-2"
-            ></div>
-            <div class="position-relative">
-              <input
-                type="text"
-                class="form-control mb-2 mt-2 pr-6"
-                placeholder=""
-              />
-              <span
-                class="text-secondary text-ceau-secondary position-absolute seconds"
-                >seconds</span
-              >
-            </div>
-            <div class="form-text text-secondary text-ceau-secondary mt-0 mb-2">
-              Sets the inactivity lifetime of a
-              <code class="text-dark">refresh_token</code> (in seconds).
-            </div>
-          </div>
-        </form>
-      </div>
-    </div> -->
       <div class="save-change center-flex">
         <button class="btn-primary border-10 save-change " (click)="onSubmit()">
           Save change
@@ -579,16 +359,6 @@
           <button class="btn-danger border-10" (click)="onDelete()">
             Delete
           </button>
-        </div>
-        <div class="col-8 col-md-10 text-danger">
-          <p>Rotate secret</p>
-          <p>
-            All authorized apps will need to be updated with the new client
-            secret.
-          </p>
-        </div>
-        <div class="col-4 col-md-2 margin-auto">
-          <button class="btn-danger border-10">Rotate</button>
         </div>
       </div>
     </div>

@@ -14,3 +14,6 @@ select {
 .save-change {
   z-index: 999;
 }
+.bring-to-front {
+  z-index: unset !important;
+}

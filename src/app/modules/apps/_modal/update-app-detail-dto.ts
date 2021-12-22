@@ -11,7 +11,7 @@ export class UpdateAppDetailDto {
   skip_authorization: boolean;
   type?: string;
   user?: string;
-
+  scopes?: any = [];
   constructor(init?: Partial<UpdateAppDetailDto>) {
     Object.assign(this, init);
   }

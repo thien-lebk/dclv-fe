@@ -121,9 +121,10 @@
                   <td>
                     <!--        <dc-setting-role></dc-setting-role>-->
                     <a
-                      [routerLink]="['../', 'detail', item.id]"
-                      class="text-primary bold"
-                      >Remove</a
+                      href="javascript:void(0)"
+                      class="text-primary bold  text-danger"
+                      (click)="removeSelectedPermission(item.id)"
+                      >Delete</a
                     >
                   </td>
                 </tr>
@@ -172,9 +173,10 @@
                   <td>
                     <!--        <dc-setting-role></dc-setting-role>-->
                     <a
-                      [routerLink]="['../', 'detail', item.id]"
-                      class="text-primary bold"
-                      >Remove</a
+                      href="javascript:void(0)"
+                      (click)="removeSelectedUser(item.id)"
+                      class="text-primary bold text-danger"
+                      >Delete</a
                     >
                   </td>
                 </tr>
